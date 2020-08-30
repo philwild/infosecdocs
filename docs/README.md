@@ -1,22 +1,23 @@
 # Welcome to the InfoSec app for Splunk!
 
-InfoSec app for Splunk is your starter security pack. InfoSec app is
-designed to adddress the most common security use cases, including
-continuous monitoring and security investigations. InfoSec app also
-includes a number of advanced threat detection use cases. All of the
-components of InfoSec app can be easily expanded using free security
-resources available for Splunk like Security Essentials app for Splunk:
-https://splunkbase.splunk.com/app/3435/
+The [InfoSec App for Splunk](https://splunkbase.splunk.com/app/4240/) is a free app for the Splunk platform which can be downloaded and installed into your Splunk environment. It is available from [Splunkbase](https://splunkbase.splunk.com/).
+
+The InfoSec App for Splunk is not to be confused with [Enterprise Security](https://www.splunk.com/en_us/software/enterprise-security.html), Splunk's premium security solution.
+
+InfoSec app for Splunk is an entry, or starter level security solution powered by the Splunk platform. It is
+designed to adddress the most common security use cases, including continuous monitoring and security investigations. InfoSec app also includes a number of advanced threat detection use cases that can be further expanded using security resources available for Splunk like [Security Essentials app for Splunk](https://splunkbase.splunk.com/app/3435/):
 
 ## Product Goals
 
-* The InfoSec App for Splunk is an 
-* Reduce latency and improve scale by balancing event distribution
-across Splunk Indexers
+* Provide an entry level security solution to new and existing Splunk customers that are not yet ready or ble to invest in Splunk's Enterprise Security platform.
+* Make it easy to direct Splunk's powerfull features towards security.
+* Provide a single pane view of your security events
+* Investigate security alerts and incidents
+* Provide a base platform that can be customised and expanded to meet your security needs using additional apps and add-ons from Splunkbase  
 
 ## Before we start
 
-This documentation is not designed to replace formal training or Splunk's own documentation. It focusses on the introductory steps and knowledge required to get the InfoSec app upp and running in a short amount of time. It assumes the user is fairly new to Splunk and has not yet grasped many of Splunk's fundamental . The documentation will introduce you to key Splunk concepts, lightly touching on each. Links will be provided to Splunk's documentation so you can delve further into Splunk's capabilities, as required.
+This documentation is not designed to replace formal training or Splunk's own documentation. It focusses on the introductory steps and knowledge required to get the InfoSec app upp and running in a short amount of time. It assumes the user is fairly new to Splunk and may not have yet grasped many of Splunk's concepts. Consider this documentation as a fast-start guide. This documentation will introduce you to key Splunk concepts, lightly touching on each. Links will be provided to Splunk's documentation so you can delve further into Splunk's capabilities, as required. Although this document focuses on the InfoSec App for Splunk, the topics covered can be applied to other apps and configurations within Splunk.
 
 ## Introduction
 
@@ -137,25 +138,38 @@ The add-on also contains several tools that are intended to make analysis, valid
 
 ### Indexes
 
+### Sourcetypes
+
+### Sources
+
+### Fields
+
+### Eventtypes
+
+### Tags
+
+### Permissions, users, roles and apps
+
 ### Macros
 
-### Datamodels
+### Datamodels and acceleration
+
+### Configuration Files
+
+### The data pipeline
+
+### Alerts
 
 ## Using the InfoSec app
 
-
+## Troubleshooting
 
 
 ## Support
 
 * The InfoSec App for Splunk is built by [Splunk Works](https://splunkbase.splunk.com/apps/#/author/splunklabs) and is developer supported. More information on support can be found on [Splunkbase](https://splunkbase.splunk.com/app/4240/#/details).
 
-If you have issues and require some assistance, before contacting the developer, post a question to [Splunk Answers](https://community.splunk.com) using the tag "[InfoSec App for Splunk](https://community.splunk.com/t5/tag/InfoSec%20App%20for%20Splunk/tg-p)"
-Syslog"
-
-Join the #splunk-connect-for-syslog room in the splunk-usergroups Slack
-Workspace. If you don't yet have an account [sign
-up](https://docs.splunk.com/Documentation/Community/1.0/community/Chat)
+If you have issues and require some assistance post a question to [Splunk Answers](https://community.splunk.com) using the tag "[InfoSec App for Splunk](https://community.splunk.com/t5/tag/InfoSec%20App%20for%20Splunk/tg-p)" before contacting the developer.
 
 Get involved, try it out, ask questions, and make
 new friends!
