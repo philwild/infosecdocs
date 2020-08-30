@@ -1,7 +1,7 @@
 # Welcome to the InfoSec app for Splunk!
 
 InfoSec app for Splunk is your starter security pack. InfoSec app is
-designed to address the most common security use cases, including
+designed to adddress the most common security use cases, including
 continuous monitoring and security investigations. InfoSec app also
 includes a number of advanced threat detection use cases. All of the
 components of InfoSec app can be easily expanded using free security
@@ -18,6 +18,81 @@ directly on a customer OS * Provide validated (testable and tested)
 implementations of filter and parse functions for common vendor products
 * Reduce latency and improve scale by balancing event distribution
 across Splunk Indexers
+
+## Before we start
+
+This documentation is not designed to replace formal training or Splunk's own documentation. It focusses on the introductory steps and knowledge required to get the InfoSec app upp and running in a short amount of time. The documentation will introduce you to key Splunk concepts, lightly touching on each. Links will be provided to Splunk's documentation so you can delve further into Splunk's capabilities, as required.
+
+## Introduction
+
+* Overview
+* Security Posture
+* Continuous Monitoring
+	* Windows Access and Changes
+	* All Authentications
+	* Malware
+	* Intrusion Detection (IDS/IPS)
+	* Firewalls
+	* Network Traffic
+* Advanced Threats
+	* Access Anomalies
+	* Network Anomalies
+	* Custom Use Cases
+* Investigation
+	* user Investigation
+	* Host Investigation
+* Compliance
+* Executive View
+* Alerts
+* Health
+* Search
+	* Search
+	* Dashboards
+	* Lookups
+	* Experimental Dashboards
+* Help
+
+## Getting Data In
+
+### Forwarders
+### HTTP Event Collector (HEC)
+### Apps and Add-ons
+
+**Splunk supported Add-ons**
+
+
+
+[Full list can be found here](https://docs.splunk.com/Documentation/AddOns)
+
+
+### Inputs Data Manager (IDM)
+
+## Installation
+
+### Supporting apps and add-ons
+
+
+## Configuration
+
+### Common Information Model (CIM)
+
+The Splunk Common Information Model (CIM) is a shared semantic model focused on extracting value from data. The CIM is implemented as an add-on that contains a collection of data models (we'll get to what that means soon), documentation, and tools that support the consistent, normalized treatment of data for maximum efficiency at search time.
+
+The InfoSec app relies on the CIM to function properly. If you have not yet installed the CIM to support the InfoSec app. Please look at the [Installation Instructions](Installation).
+
+The CIM add-on contains a collection of preconfigured data models that you can apply to your data at search time. Each data model in the CIM consists of a set of field names and tags that define the least common denominator of a domain of interest. You can use these data models to normalize and validate data at search time, accelerate key data in searches and dashboards, or create new reports and visualizations with Pivot.
+
+The add-on also contains several tools that are intended to make analysis, validation, and alerting easier and more consistent. These tools include a custom command for CIM validation and a common action model, which is the common information model for custom alert actions. See Approaches to using the CIM for more information about the tools available in the CIM add-on.
+
+### Indexes
+
+### Macros
+
+### Datamodels
+
+## Using the InfoSec app
+
+
 
 
 ## Support
