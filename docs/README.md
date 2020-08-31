@@ -58,12 +58,13 @@ This documentation is not designed to replace formal training or Splunk's own do
 * Splunkbase
 * Installing Apps and Add-ons
 
+### Inputs Data Manager (IDM)
+
 **Splunk supported Add-ons**
 
 [Full list can be found here](https://docs.splunk.com/Documentation/AddOns)
 
 
-### Inputs Data Manager (IDM)
 
 ## Installation
 
@@ -120,9 +121,14 @@ Required add-ons and apps:
 - Malware/antivirus tools data (e.g. Symantec, McAfee, Sophos, Trend Micro)
 
 
-
-
 ## Configuration
+
+### Data Sources
+
+- Microsoft365 or AD
+- Linux Authentication
+- Cisco ASA Firewall
+- Suricata IDS
 
 ### Common Information Model (CIM)
 
