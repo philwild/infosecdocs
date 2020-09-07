@@ -26,8 +26,27 @@ This documentation is not designed to replace formal training or Splunk's own do
 The InfoSec app provides the user with a number of pre-configured and customisable security focussed dashboards. 
 
 * Overview
+
+Description
+
+[** Video **]
+
 * Security Posture
+
 ![Security Posture](./Images/SecurityPosture.png)
+As the title suggests, the Security Posture dashboard provides a high-level view of your security posture. At the top of the dashboard there are two rows of indicators. The top-most row displays statistical counts of events covering your Intrusion Detection System (IDS), AntiVirus and Malware systems. Each indicator shows the current state, with an arrow identifying the rate of change (positive, neutral, or negative) and the previously recorded statistic from 24 hours ago.
+
+The second row of indicators displays the number of detected hosts and devices, along with the number of detected accounts being monitord. Each indicator also includes the 24 hour trend and previous result for comparative purposes.
+
+Clicking on any of these indicators will open a new dashboard with more detailed information.
+
+The next row includes three dashboards that focus on Intrusion alerts, splitting and breaking down the reporting into a statistical count of the total "Alerts by Severity", a 24 hour view of those alerts over time, and the Top-10 most critical alerts charted over the same 24 hour window.
+
+Clicking on any of these dashboards will open a new window that focuses on your IDS.
+
+The last row contains two dashboards that focus on account and asset information within your organisation. For these dashboards to populate, the punchcard visualisation has to have been installed into your Splunk instance. If you do not see the punchcard visualisation like within the above screen-shot, it may indicate that this visualition has not been installed or may have been disabled. Installing this app will be discussed [later](### Supporting apps and add-ons).
+
+
 * Continuous Monitoring
 	* Windows Access and Changes
 	* All Authentications
