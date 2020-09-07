@@ -27,6 +27,7 @@ The InfoSec app provides the user with a number of pre-configured and customisab
 
 * Overview
 * Security Posture
+![Security Posture](./Images/SecurityPosture.png)
 * Continuous Monitoring
 	* Windows Access and Changes
 	* All Authentications
