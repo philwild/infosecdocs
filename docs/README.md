@@ -53,13 +53,32 @@ These two dashboards provide a swimlane style view of the type and count of even
 * Continuous Monitoring
 	* Windows Access and Changes
 
-	![Windows Access and Changes](./Images/WindowsAccessAndChanges.png)
+![Windows Access and Changes](./Images/WindowsAccessAndChanges.png)
 	
 	* All Authentications
+
+![All Authentications](./Images/AllAuthentications.png)
+	
 	* Malware
+
+![Malware](./Images/Malware.png)
+	
 	* Intrusion Detection (IDS/IPS)
+
+![Intrusion Detection](./Images/IntrusionDetection.png)
+	
 	* Firewalls
+
+![Firewalls](./Images/Firewalls.png)
+	
 	* Network Traffic
+
+![Network Traffic](./Images/Networktraffic.png)
+	
+	* VPN Access
+	
+
+	
 * Advanced Threats
 	* Access Anomalies
 	* Network Anomalies
