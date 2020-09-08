@@ -53,7 +53,7 @@ These two dashboards provide a swimlane style view of the type and count of even
 * Continuous Monitoring
 	* Windows Access and Changes
 
-	![Windows Access and Changes](./images/WindowsAccessAndChanges.png)
+	![Windows Access and Changes](./Images/WindowsAccessAndChanges.png)
 	
 	* All Authentications
 	* Malware
