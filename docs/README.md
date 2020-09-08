@@ -40,15 +40,21 @@ The second row of indicators displays the number of detected hosts and devices, 
 
 Clicking on any of these indicators will open a new dashboard with more detailed information.
 
+Together, these two rows of indicators gives you an immediate view of the state of your environment compared to how it looked yesterday.
+
 The next row includes three dashboards that focus on Intrusion alerts, splitting and breaking down the reporting into a statistical count of the total "Alerts by Severity", a 24 hour view of those alerts over time, and the Top-10 most critical alerts charted over the same 24 hour window.
 
 Clicking on any of these dashboards will open a new window that focuses on your IDS.
 
-The last row contains two dashboards that focus on account and asset information within your organisation. For these dashboards to populate, the punchcard visualisation has to have been installed into your Splunk instance. If you do not see the punchcard visualisation like within the above screen-shot, it may indicate that this visualition has not been installed or may have been disabled. Installing this app will be discussed [later](### Supporting apps and add-ons).
+The last row contains two punchcard style dashboards that focus on account and asset information within your organisation. For these dashboards to populate, the punchcard visualisation has to have been installed and enabled within your Splunk instance. If you do not see the punchcard visualisation matching the above screen-shot, it may indicate that this visualition has not been installed or may have been disabled. You may see the message "No matching visualization found for type: punchcard, in app: punchcard_app". Installing this app will be discussed [later](# Supporting apps and add-ons).
 
+These two dashboards provide a swimlane style view of the type and count of events being detected against your identities and assets over the past 24 hours. These two dashboards allow you to quickly identify bursts of activity that may need investigating.
 
 * Continuous Monitoring
 	* Windows Access and Changes
+
+	![Windows Access and Changes](./images/WindowsAccessAndChanges.png)
+	
 	* All Authentications
 	* Malware
 	* Intrusion Detection (IDS/IPS)
