@@ -221,25 +221,46 @@ The InfoSec app for Splunk can be installed directly into Splunk in the same way
 It's assumed that you already have Splunk installed somewhere, or you're using Splunk Cloud. This document does not cover installing and configuring Splunk for the first time. If you need to do this before proceeding further, please view the following resources:
 
 * [Installing Splunk on Linux documentation](https://docs.splunk.com/Documentation/Splunk/8.0.6/Installation/InstallonLinux). There's also a video [here](https://www.splunk.com/en_us/training/videos/installing-splunk-enterprise-on-linux.html).
+
 * [Installing Splunk on Windows documentation](https://docs.splunk.com/Documentation/Splunk/8.0.6/Installation/InstallonWindows). There's also a video [here](https://www.splunk.com/en_us/resources/videos/installing-splunk-on-windows.html).
 
 * [Start Splunk Enterprise for the first time](https://docs.splunk.com/Documentation/Splunk/8.0.6/Installation/StartSplunkforthefirsttime)
+
 * [Installing the Splunk Enterprise License](https://docs.splunk.com/Documentation/Splunk/8.0.6/Installation/Installalicense)
 
 * [A short introductory video to using the Splunk interface](https://www.splunk.com/en_us/resources/videos/splunk-web-demo.html)
 
-The method for installing the InfoSec app will vary slightly between Splunk Enterprise and Splunk Cloud.
+**Installation Steps**
 
-**Splunk Cloud**
+The method for installing the InfoSec app will vary slightly between Splunk Enterprise and Splunk Cloud. If there is a difference within the steps. Each will be explained.
 
-1. Log into your Splunk environment.
+1. Log into your Splunk environment with an account that has administrative privileges.
+
 2. Select the App menu
 
-![App menu](./Images/AppMenu.png | width=100)
+<img src="./Images/AppMenu.png" width=50% height=50%>
 
 3. Select Find More Apps
 
-![Find More Apps](./Images/FindMoreApps.png)
+<img src="./Images/FindMoreApps.png" width=50% height=50%>
+
+4. Within the search menu on the top-left of the page, search for "infosec app for splunk". The InfoSec App for Splunk should be listed as one of the available apps for installation.
+
+Note: The ability to install Apps and Add-ons directly into your Splunk environment requires internet 
+
+5. Press the green "Install" button for the InfoSec App for Splunk. The process will be slightly different between Splunk Cloud and Splunk Enterprise.
+
+**Splunk Cloud**
+
+<img src="./Images/Search&Install.png" width=50% height=50%>
+
+6. When asked to confirm, select "Continue".
+
+**Splunk Enterprise**
+
+<img src="./Images/Login&Install.png" width=50% height=50%>
+
+7. Login with your splunk.com credentials to install the app, not your Splunk Enterprise instance account. If you have a larger distributed Splunk Enterprise environment you only need to install the InfoSec app on the search head. It does not need to be installed on the indexers.  
 
 
 
