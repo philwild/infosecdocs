@@ -1,0 +1,10 @@
+site_name: InfoSec App for Splunk Documentation
+repo_url: https://splunk-infosec-documentation.readthedocs.io/
+site_author: Phil Wild
+nav:
+    - 'Introduction': 'index.md'
+    - 'User Guide': 'user-guide.md'
+    - 'About': 'about.md'
+
+extra_css:
+    - css/extra.css

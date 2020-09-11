@@ -2,28 +2,30 @@
 
 The [InfoSec App for Splunk](https://splunkbase.splunk.com/app/4240/) is a free app for the Splunk platform which can be downloaded and installed into your Splunk environment. It is available from [Splunkbase](https://splunkbase.splunk.com/).
 
-The InfoSec App for Splunk is not to be confused with [Enterprise Security](https://www.splunk.com/en_us/software/enterprise-security.html), Splunk's premium security solution.
+The InfoSec App for Splunk should not to be confused with [Enterprise Security](https://www.splunk.com/en_us/software/enterprise-security.html), Splunk's premium security solution. Although both solutions are security solutions, the features and capabilities of Enterprise Security are significantly deeper than what is available within the InfoSec app.
 
 InfoSec app for Splunk is an entry, or starter level security solution powered by the Splunk platform. It is
-designed to adddress the most common security use cases, including continuous monitoring and security investigations. InfoSec app also includes a number of advanced threat detection use cases that can be further expanded using security resources available for Splunk like the [Security Essentials app for Splunk](https://splunkbase.splunk.com/app/3435/):
+designed to address the most common security use cases, including continuous monitoring and security investigations. InfoSec app also includes a number of advanced threat detection use cases that can be further expanded using security resources available for Splunk like the [Security Essentials app for Splunk](https://splunkbase.splunk.com/app/3435/).
+
+Splunk Apps provide solutions for many common use cases. They provide specialised insight into your data and systems with pre-configured dashboards, reports, data inputs, and saved searches. Apps for Splunk are available from [Splunkbase](https://splunkbase.splunk.com/). The Splunkbase library has 1000+ apps and add-ons from Splunk, our partners, and our community. They can be directly downloaded, installed and configured within your Splunk environment.
 
 ## Product Goals
 
 The InfoSec app for Splunk aims to achieve the following:
 
-* Provide an entry level security solution to new and existing Splunk customers that are not yet ready or ble to invest in Splunk's Enterprise Security platform.
-* Make it easy to direct Splunk's powerfull features towards security.
-* Provide a single pane view of your security events.
+* Provide an entry level security solution to new and existing Splunk customers that are not yet ready or able to invest in Splunk's Enterprise Security platform.
+* Make it easy to direct Splunk's powerful features towards security.
+* Provide a single pane view of your security events and posture.
 * Allow the user to investigate security alerts and incidents.
 * Provide a base platform that can be customised and expanded to meet your security needs using additional apps and add-ons from Splunkbase.
 
 ## Before we start
 
-This documentation is not designed to replace formal training or Splunk's own documentation. It focusses on the introductory steps and knowledge required to get the InfoSec app upp and running in a short amount of time. It assumes the user is fairly new to Splunk and may not have yet grasped many of Splunk's fundamental concepts. Consider this documentation as a fast-start guide to getting the InfoSec app up and running within your environment. This documentation will introduce you to key Splunk concepts, lightly touching on each. Links will be provided to Splunk's documentation so you can delve further into Splunk's capabilities, as required. Although this document focuses on the InfoSec App for Splunk, the topics covered can be applied to other apps and configurations within Splunk.
+This documentation is not designed to replace formal training or Splunk's own documentation. It focusses on the introductory steps and knowledge required to get the InfoSec app up and running in a short amount of time. It assumes the user is fairly new to Splunk and may not have yet grasped many of Splunk's fundamental concepts. Consider this documentation as a fast-start guide to getting the InfoSec app up and running within your environment. This documentation will introduce you to key Splunk concepts, lightly touching on each. Links will be provided to Splunk's documentation so you can delve further into Splunk's capabilities, as required. Although this document focuses on the InfoSec App for Splunk, the topics covered can be applied to other apps and configurations within Splunk.
 
 ## Introduction to the InfoSec app
 
-The InfoSec app provides the user with a number of pre-configured and customisable security focussed dashboards. 
+The InfoSec app provides the user with a number of pre-configured and customisable security focussed dashboards and alerts. 
 
 * Overview
 
@@ -31,12 +33,12 @@ Description
 
 [** Video **]
 
-* Security Posture
+**Security Posture**
 
 ![Security Posture](./Images/SecurityPosture.png)
 As the title suggests, the Security Posture dashboard provides a high-level view of your security posture. At the top of the dashboard there are two rows of indicators. The top-most row displays statistical counts of events covering your Intrusion Detection System (IDS), AntiVirus and Malware systems. Each indicator shows the current state, with an arrow identifying the rate of change (positive, neutral, or negative) and the previously recorded statistic from 24 hours ago.
 
-The second row of indicators displays the number of detected hosts and devices, along with the number of detected accounts being monitord. Each indicator also includes the 24 hour trend and previous result for comparative purposes.
+The second row of indicators displays the number of detected hosts and devices, along with the number of detected accounts being monitored. Each indicator also includes the 24 hour trend and previous result for comparative purposes.
 
 Clicking on any of these indicators will open a new dashboard with more detailed information.
 
@@ -46,56 +48,151 @@ The next row includes three dashboards that focus on Intrusion alerts, splitting
 
 Clicking on any of these dashboards will open a new window that focuses on your IDS.
 
-The last row contains two punchcard style dashboards that focus on account and asset information within your organisation. For these dashboards to populate, the punchcard visualisation has to have been installed and enabled within your Splunk instance. If you do not see the punchcard visualisation matching the above screen-shot, it may indicate that this visualition has not been installed or may have been disabled. You may see the message "No matching visualization found for type: punchcard, in app: punchcard_app". Installing this app will be discussed [later](# Supporting apps and add-ons).
+The last row contains two punchcard style dashboards that focus on account and asset information within your organisation. For these dashboards to populate, the punchcard visualisation has to have been installed and enabled within your Splunk instance. If you do not see the punchcard visualisation matching the above screen-shot, it may indicate that this visualisation has not been installed or may have been disabled. You may see the message "No matching visualization found for type: punchcard, in app: punchcard_app". Installing this app will be discussed [later](# Supporting apps and add-ons).
 
-These two dashboards provide a swimlane style view of the type and count of events being detected against your identities and assets over the past 24 hours. These two dashboards allow you to quickly identify bursts of activity that may need investigating.
+These two dashboards provide a swim-lane style view of the type and count of events being detected against your identities and assets over the past 24 hours. These two dashboards allow you to quickly identify bursts of activity that may need investigating.
 
-* Continuous Monitoring
-	* Windows Access and Changes
+**Continuous Monitoring**
 
-![Windows Access and Changes](./Images/WindowsAccessAndChanges.png)
+* Windows Access and Changes
+
+	![Windows Access and Changes](./Images/WindowsAccessAndChanges.png)
 	
-	* All Authentications
+	The Windows Access and Changes dashboard focuses on events within your Microsoft Windows environment. It presents information relating to:
+	
+ - Locked Out Accounts
+      - Privilege Escalations
+      - Change and 
+     
+   * All Authentications
 
-![All Authentications](./Images/AllAuthentications.png)
+	![All Authentications](./Images/AllAuthentications.png)
+
+	[Description here]
 	
 	* Malware
 
-![Malware](./Images/Malware.png)
+	![Malware](./Images/Malware.png)
+
+	[Description here]
 	
 	* Intrusion Detection (IDS/IPS)
 
-![Intrusion Detection](./Images/IntrusionDetection.png)
+	![Intrusion Detection](./Images/IntrusionDetection.png)
+
+	[Description here]
 	
 	* Firewalls
 
-![Firewalls](./Images/Firewalls.png)
+	![Firewalls](./Images/Firewalls.png)
+
+	[Description here]
 	
 	* Network Traffic
 
-![Network Traffic](./Images/Networktraffic.png)
+	![Network Traffic](./Images/Networktraffic.png)
+
+	[Description here]
 	
 	* VPN Access
 	
+	![VPN Access](./Images/VPN.png)
 
+	[Description here]
 	
 * Advanced Threats
 	* Access Anomalies
+
+	![Access Anomalies](./Images/AccessAnomalies.png)
+
+	[Description here]
+	
 	* Network Anomalies
+
+	![Network Anomalies](./Images/NetworkAnomalies.png)
+
+	[Description here]
+	
 	* Custom Use Cases
+
+	![Custom Use Cases](./Images/CustomUseCases.png)
+
+	[Description here]
+	
 * Investigation
 	* user Investigation
+
+	![User Investigation](./Images/UserInvestigation.png)
+
+	[Description here]
+	
 	* Host Investigation
+
+	![Host Investigation](./Images/HostInvestigation.png)
+
+	[Description here]
+	
 * Compliance
+
+	![Compliance](./Images/Compliance.png)
+
+	[Description here]
+
 * Executive View
+
+	![Executive View](./Images/ExecutiveView.png)
+
+	[Description here]
+
 * Alerts
+
+	![Alerts](./Images/Alerts.png)
+
+	[Description here]
+
+* Incident Posture
+
+	![Incident Posture](./Images/IncidentPosture.png)
+
+	[Description here]
+
 * Health
+
+	![Health](./Images/Health.png)
+
+	[Description here]
+
 * Search
 	* Search
+
+	![Search](./Images/Search.png)
+
+	[Description here]
+	
 	* Dashboards
+
+	![](./Images/Dashboards.png)
+
+	[Description here]
+	
 	* Lookups
+
+	![Lookups](./Images/Lookups.png)
+
+	[Description here]
+	
 	* Experimental Dashboards
+
+	![Experimental Dashboards](./Images/ExperimentalDashboards.png)
+
+	[Description here]
+	
 * Help
+
+	![Help](./Images/Help.png)
+
+	[Description here]
+
 
 ## Getting Data In
 
@@ -116,6 +213,36 @@ These two dashboards provide a swimlane style view of the type and count of even
 
 
 ## Installation
+
+**Installation Prerequisites**
+
+The InfoSec app for Splunk can be installed directly into Splunk in the same way as other available apps from [Splunkbase](https://splunkbase.splunk.com/).
+
+It's assumed that you already have Splunk installed somewhere, or you're using Splunk Cloud. This document does not cover installing and configuring Splunk for the first time. If you need to do this before proceeding further, please view the following resources:
+
+* [Installing Splunk on Linux documentation](https://docs.splunk.com/Documentation/Splunk/8.0.6/Installation/InstallonLinux). There's also a video [here](https://www.splunk.com/en_us/training/videos/installing-splunk-enterprise-on-linux.html).
+* [Installing Splunk on Windows documentation](https://docs.splunk.com/Documentation/Splunk/8.0.6/Installation/InstallonWindows). There's also a video [here](https://www.splunk.com/en_us/resources/videos/installing-splunk-on-windows.html).
+
+* [Start Splunk Enterprise for the first time](https://docs.splunk.com/Documentation/Splunk/8.0.6/Installation/StartSplunkforthefirsttime)
+* [Installing the Splunk Enterprise License](https://docs.splunk.com/Documentation/Splunk/8.0.6/Installation/Installalicense)
+
+* [A short introductory video to using the Splunk interface](https://www.splunk.com/en_us/resources/videos/splunk-web-demo.html)
+
+The method for installing the InfoSec app will vary slightly between Splunk Enterprise and Splunk Cloud.
+
+**Splunk Cloud**
+
+1. Log into your Splunk environment.
+2. Select the App menu
+
+![App menu](./Images/AppMenu.png | width=100)
+
+3. Select Find More Apps
+
+![Find More Apps](./Images/FindMoreApps.png)
+
+
+
 
 Notes:
 
@@ -185,13 +312,13 @@ Required add-ons and apps:
 
 ### Common Information Model (CIM)
 
-The Splunk Common Information Model (CIM) is a shared semantic model focused on extracting value from data. The CIM is implemented as an add-on that contains a collection of data models (we'll get to what that means soon), documentation, and tools that support the consistent, normalized treatment of data for maximum efficiency at search time.
+The Splunk Common Information Model (CIM) is a shared semantic model focused on extracting value from data. The CIM is implemented as an add-on that contains a collection of data models (we'll get to what that means soon), documentation, and tools that support the consistent, normalised treatment of data for maximum efficiency at search time.
 
 The InfoSec app relies on the CIM to function properly. If you have not yet installed the CIM to support the InfoSec app. Please look at the [Installation Instructions](#Installation).
 
 If you'd like to watch a short video explaining the value and use of the CIM, Splunk Education has published one to Youtube [here](https://www.youtube.com/watch?v=QTklD7OiN74) (8:30 mins). The video also covers installation and configuration of the CIM.
 
-The CIM add-on contains a collection of preconfigured data models that you can apply to your data at search time. Each data model in the CIM consists of a set of field names and tags that define the least common denominator of a domain of interest. You can use these data models to normalize and validate data at search time, accelerate key data in searches and dashboards, or create new reports and visualizations with Pivot.
+The CIM add-on contains a collection of preconfigured data models that you can apply to your data at search time. Each data model in the CIM consists of a set of field names and tags that define the least common denominator of a domain of interest. You can use these data models to normalise and validate data at search time, accelerate key data in searches and dashboards, or create new reports and visualisations with Pivot.
 
 The add-on also contains several tools that are intended to make analysis, validation, and alerting easier and more consistent. These tools include a custom command for CIM validation and a common action model, which is the common information model for custom alert actions. See Approaches to using the CIM for more information about the tools available in the CIM add-on.
 
