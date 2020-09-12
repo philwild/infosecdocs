@@ -220,15 +220,15 @@ The InfoSec app for Splunk can be installed directly into Splunk in the same way
 
 It's assumed that you already have Splunk installed somewhere, or you're using Splunk Cloud. This document does not cover installing and configuring Splunk for the first time. If you need to do this before proceeding further, please view the following resources:
 
-* [Installing Splunk on Linux documentation](https://docs.splunk.com/Documentation/Splunk/8.0.6/Installation/InstallonLinux). There's also a video [here](https://www.splunk.com/en_us/training/videos/installing-splunk-enterprise-on-linux.html).
+* [Installing Splunk on Linux documentation](https://docs.splunk.com/Documentation/Splunk/latest/Installation/InstallonLinux). There's also a video [here](https://www.splunk.com/en_us/training/videos/installing-splunk-enterprise-on-linux.html).
 
-* [Installing Splunk on Windows documentation](https://docs.splunk.com/Documentation/Splunk/8.0.6/Installation/InstallonWindows). There's also a video [here](https://www.splunk.com/en_us/resources/videos/installing-splunk-on-windows.html).
+* [Installing Splunk on Windows documentation](https://docs.splunk.com/Documentation/Splunk/latest/Installation/InstallonWindows). There's also a video [here](https://www.splunk.com/en_us/resources/videos/installing-splunk-on-windows.html).
 
-* [Start Splunk Enterprise for the first time](https://docs.splunk.com/Documentation/Splunk/8.0.6/Installation/StartSplunkforthefirsttime)
+* [Start Splunk Enterprise for the first time](https://docs.splunk.com/Documentation/Splunk/latest/Installation/StartSplunkforthefirsttime)
 
-* [Installing the Splunk Enterprise License](https://docs.splunk.com/Documentation/Splunk/8.0.6/Installation/Installalicense)
+* [Installing the Splunk Enterprise License](https://docs.splunk.com/Documentation/Splunk/latest/Installation/Installalicense)
 
-* [A short introductory video to using the Splunk interface](https://www.splunk.com/en_us/resources/videos/splunk-web-demo.html)
+* [A short introductory video to using the Splunk web interface](https://www.splunk.com/en_us/resources/videos/splunk-web-demo.html)
 
 **Installation Steps**
 
@@ -236,31 +236,55 @@ The method for installing the InfoSec app will vary slightly between Splunk Ente
 
 1. Log into your Splunk environment with an account that has administrative privileges.
 
-2. Select the App menu
+2. Select the App menu within the black menu bar at the top left of the Splunk web user interface (just to the right of the Splunk logo). 
 
-<img src="./Images/AppMenu.png" width=50% height=50%>
+   <img src="./Images/AppMenu.png" width=50% height=50%>
 
 3. Select Find More Apps
 
-<img src="./Images/FindMoreApps.png" width=50% height=50%>
+   <img src="./Images/FindMoreApps.png" width=50% height=50%>
+  
 
 4. Within the search menu on the top-left of the page, search for "infosec app for splunk". The InfoSec App for Splunk should be listed as one of the available apps for installation.
 
-Note: The ability to install Apps and Add-ons directly into your Splunk environment requires internet 
-
+   <img src="./Images/Search&Install.png" width=100% height=100%>
+   
 5. Press the green "Install" button for the InfoSec App for Splunk. The process will be slightly different between Splunk Cloud and Splunk Enterprise.
 
-**Splunk Cloud**
+    Note: The ability to install Apps and Add-ons directly into your Splunk environment requires internet connectivity. Your Splunk environment must be able to access https://splunkbase.splunk.com over port TCP/443. If searching for additional apps like the InfoSec app is not producing any results, you may have a problem with Internet connectivity. If the only method of gaining access is through a proxy server, then this must be configured. Instructions on how to configure Splunk to use your HTTP Proxy Server can be found [here](https://docs.splunk.com/Documentation/Splunk/latest/Admin/ConfigureSplunkforproxy). If configuring Internet access for your Splunk environment is not possible, you can still install apps manually via a two step process. You will need to download the apps from [Splunkbase](https://splunkbase.splunk.com) to your desktop and then install the apps into your Splunk environment via "[Install app from file](https://community.splunk.com/t5/Archive/How-to-install-a-splunk-app/m-p/87912)". This is not applicable for Splunk Cloud.
 
-<img src="./Images/Search&Install.png" width=50% height=50%>
+   **Splunk Cloud**
 
-6. When asked to confirm, select "Continue".
+   When asked to confirm, select "Continue".
 
-**Splunk Enterprise**
+   **Splunk Enterprise**
 
-<img src="./Images/Login&Install.png" width=50% height=50%>
+   Login with your splunk.com credentials to install the app, not your Splunk Enterprise instance account. You will also need to accept the Terms and Conditions before being able to proceed.
+      
+   <img src="./Images/Login&Install.png" width=50% height=50%>
+   
+   If you have a larger distributed Splunk Enterprise environment you only need to install the InfoSec app on the search head. It does not need to be installed on the indexers.  
+   
+The InfoSec app for Splunk should now be installed. To confirm this, select the InfoSec app from the App menu (see step 2, above). You should be presented with the "Security Posture" dashboard.
 
-7. Login with your splunk.com credentials to install the app, not your Splunk Enterprise instance account. If you have a larger distributed Splunk Enterprise environment you only need to install the InfoSec app on the search head. It does not need to be installed on the indexers.  
+**Additional Apps and Add-ons**
+
+A number of supporting Splunk Apps and Add-ons from Splunkbase must also be installed before you can start using the InfoSec app. These are:
+
+* [Splunk Common Information Model (CIM)](https://splunkbase.splunk.com/app/1621/)
+* [Punchcard visualization](https://splunkbase.splunk.com/app/3129/)
+* [Force Directed visualization](https://splunkbase.splunk.com/app/3767/)
+* [Lookup File Editor](https://splunkbase.splunk.com/app/1724/) (new requirement starting from InfoSec v1.5)
+* [Sankey Diagram visualization](https://splunkbase.splunk.com/app/3112/) (new optional prerequisite for the experimental VPN Access dashboard starting from v1.5.3)
+
+The process to install these additional Apps and Add-ons is the same as you've just completed when installing the InfoSec app. Repeat the above steps to install each of these additional Apps and Add-ons.
+
+Once you've reached this step, you are ready to start configuring the InfoSec App for Splunk.
+   
+
+## Configuration
+
+### Data Sources   
 
 
 
@@ -277,12 +301,6 @@ Antivirus/Malware data like McAfee, Symantec, Trend Micro, etc.
 All data used by InfoSec app must be Common Information Model (CIM)-compliant. The easiest way to accomplish that is to use CIM-compliant Splunk Add-ons for your security devices *(*** See Splunkbase list of CIM add-ons ***)
 *
 
-The following free Splunk Add-ons must be installed before you can start using InfoSec App:
-Splunk Common Information Model (CIM): https://splunkbase.splunk.com/app/1621/
-Punchcard visualization: https://splunkbase.splunk.com/app/3129/
-Force Directed visualization: https://splunkbase.splunk.com/app/3767/
-Lookup File Editor: https://splunkbase.splunk.com/app/1724/ (new requirement starting from InfoSec v1.5)
-Sankey Diagram visualization: https://splunkbase.splunk.com/app/3112/ (new optional prerequisite for the experimental VPN Access dashboard starting from v1.5.3)
 The following Data Models must be accelerated:
 
 Authentication
@@ -294,21 +312,6 @@ Network_Traffic
 Endpoint
 Web (new requirement starting from InfoSec v1.5)
 
-WHERE TO INSTALL THE APP
-
-The app can be installed on a standalone Splunk server, a Search Head or a Search Head Cluster. In a distributed environment do not install the app on Indexers; the app should only be installed on Search Head(s).
-
-### Supporting apps and add-ons
-
-Required add-ons and apps:
-- Splunk Common Information Model (CIM)
-
-- Punchcard visualization
-
-- Force Directed visualization
-
-- Lookup File Editor
-
 ### required Data Sources
 
 - Firewall, IDS/IPS data (e.g. Cisco, Palo Alto Networks, Check Point, Fortinet, Juniper)
@@ -318,9 +321,6 @@ Required add-ons and apps:
 - Malware/antivirus tools data (e.g. Symantec, McAfee, Sophos, Trend Micro)
 
 
-## Configuration
-
-### Data Sources
 
 
 
@@ -331,48 +331,116 @@ Required add-ons and apps:
 - Symantec Endpoint Protection
 - Suricata IDS
 
-### Common Information Model (CIM)
+##Concepts and definitions
+
+The InfoSec app relies on accelerated data models and the Common Information model (CIM) to provide a consistent and normalised view into the event data that you'll bring into Splunk. Understanding how to configure and use the CIM and data models also requires an understanding of indexes, sourcetypes, sources, fields, eventtypes, tags, macros and a few other concepts.
+
+Splunk provides a [Splexicon](https://docs.splunk.com/Splexicon), which is a glossary of technical terminology that is specific to Splunk software. Definitions include links to related information in the Splunk documentation.
+ 
+###Common Information Model (CIM)
 
 The Splunk Common Information Model (CIM) is a shared semantic model focused on extracting value from data. The CIM is implemented as an add-on that contains a collection of data models (we'll get to what that means soon), documentation, and tools that support the consistent, normalised treatment of data for maximum efficiency at search time.
 
 The InfoSec app relies on the CIM to function properly. If you have not yet installed the CIM to support the InfoSec app. Please look at the [Installation Instructions](#Installation).
 
-If you'd like to watch a short video explaining the value and use of the CIM, Splunk Education has published one to Youtube [here](https://www.youtube.com/watch?v=QTklD7OiN74) (8:30 mins). The video also covers installation and configuration of the CIM.
+Splunk Education has published a short video explaining the value and use of the CIM,  one to Youtube [here](https://www.youtube.com/watch?v=QTklD7OiN74) (8:30 mins). The video also covers installation and configuration of the CIM.
 
 The CIM add-on contains a collection of preconfigured data models that you can apply to your data at search time. Each data model in the CIM consists of a set of field names and tags that define the least common denominator of a domain of interest. You can use these data models to normalise and validate data at search time, accelerate key data in searches and dashboards, or create new reports and visualisations with Pivot.
 
-The add-on also contains several tools that are intended to make analysis, validation, and alerting easier and more consistent. These tools include a custom command for CIM validation and a common action model, which is the common information model for custom alert actions. See Approaches to using the CIM for more information about the tools available in the CIM add-on.
+The add-on also contains several tools that are intended to make analysis, validation, and alerting easier and more consistent. These tools include a custom command for CIM validation and a common action model, which is the common information model for custom alert actions. See [Approaches to using the CIM](https://docs.splunk.com/Documentation/CIM/latest/User/HowtouseCIM) for more information about the tools available in the CIM add-on.
 
-### Indexes
+For the InfoSec app to correctly report on the data that you have in Splunk, that data must be present within the supporting data models which means the data must be CIM compliant.
 
-### Sourcetypes
+###Index
 
-### Sources
+Splunk stores your data in indexes as events. The default index in splunk is called "main". Splunk will store your event data in this main index if you don't tell Splunk to put it anywhere else. You can create and specify other indexes for different data inputs. There are several key reasons for having multiple indexes:
 
-### Fields
+* To control user access.
+* To accommodate varying retention policies.
+* To speed searches in certain situations.
 
-### Eventtypes
+When configuring data models in Splunk, in most cases, you would restrict each datamodel to just the indexes that contain the data that populates the data model.
 
-### Tags
+Further information on using, creating and manageing indexes in Splunk can be found [here](https://docs.splunk.com/Documentation/Splunk/latest/Indexer/Setupmultipleindexes).
 
-### Permissions, users, roles and apps
+###Source type
 
-### Macros
+A source type is used to name or identify each different type of data in Splunk. The definition of a sourcetype will define how the timestamp is interpreted, what defines the break between different events and how Splunk might decipher and understand the structure of events. A source type could be considered the fingerprint or DNA of the event data entering Splunk. When configuring Splunk to receive or index data, you will always define a source type, or a source type may be pre-defined within an Add-on that you've chosen to use to help you onboard data into Splunk. As an example, the source types defined within the Splunk Add-on for Windows are listed within Splunk's documentation [here](https://docs.splunk.com/Documentation/WindowsAddOn/latest/User/SourcetypesandCIMdatamodelinfo).
 
-### Datamodels and acceleration
+Some source types may be structured, such as json, XML or CSV whereas others may have no structure.
 
-### Configuration Files
+This [blog post](https://www.splunk.com/en_us/blog/tips-and-tricks/sourcetypes-whats-in-name.html) provides a good introduction to source types with Splunk.
 
-### The data pipeline
+Splunk software ships with a set of built-in source types that are known as [pretrained source types](https://docs.splunk.com/Documentation/Splunk/latest/Data/Listofpretrainedsourcetypes).
 
-### Alerts
+###Source
 
-## Using the InfoSec app
+A source in Splunk is not to be confused with source type. Where a source type identifies the structure of events or data within Splunk, the source identifies where that event data has come from. The source is the name of the file, stream or other input from which a particular event has cme from. The below is an example of the difference between source and sourcetype
 
-## Troubleshooting
+`source=/var/log/messages and sourcetype=linux_syslog`
+
+Every event in Splunk will have a pre-defined index, host, source, sourcetype and _time field. For more information, see [default fields](https://docs.splunk.com/Splexicon:Defaultfield).
+
+###Host
+
+Within Splunk, all event data will be asigned to a host. The host identifies the network device that collected the data for Splunk. It may be a hostname or IP address. Further information can be found in the [Splunk documentation](https://docs.splunk.com/Documentation/Splunk/8.0.5/Data/Abouthosts). The host field is considered a [default fields](https://docs.splunk.com/Splexicon:Defaultfield).
+
+###Field
+
+Fields appear in event data as searchable name-value pairings such as `user_name=fred`. Fields are the building blocks of Splunk searches, reports and data models.
+
+Splunk will attempt to auto-extract values into fields from within the event data that is being indexed. This is normally performed at search time.
+
+Fields will often be defined within event data as key value pairs such as `user=fred` or `src:192.168.10.5` or may simply be a number or text within the structure of the event with no defined key. Splunk can still identify these fields using a custom [field extraction](https://docs.splunk.com/Splexicon:Fieldextraction) through Splunk web. A field extraction is defined against a source type, a source or a host.
+
+Further information on fields in Splunk can be found [here](https://docs.splunk.com/Documentation/Splunk/latest/Knowledge/Aboutfields).
+
+The values from fields within event data are used populate enabled data models within Splunk. 
+
+Often, fields defined as key value pairs within event data may not align with the naming standard defined within the CIM and data models. In order to work with this event data the names of these fields needs to be be changed to conform with the CIM naming standard. This can be done using Aliases.
+
+###Alias
+
+An alias (or field alias) in Splunk is an alternate name assigned to a field that has been extracted from the event data within a Splunk index. Field aliases for fields can be defined against a source type, a source or a host. They can be defined within Splunk web by going into the Settings -> Fields menu. If you are working with a data source that is not yet CIM compliant, you may need to create field aliases to map existing fields within your data source to the [CIM naming convention](https://docs.splunk.com/Documentation/CIM/latest/User/CIMfields).
+
+See Splunk's [documentation on Fields](https://docs.splunk.com/Documentation/Splunk/latest/Knowledge/Abouttagsandaliases) for further information.
+
+###Event type
+
+An event type in Splunk is a category of events united by the same search. Event types are useful for categorising a subset of event data from within one source type, or uniting events of a certain type across multiple source types. Event types and tags go hand-in-hand in asisting with preparing data for use in data models.
+
+This is an older Splunk [video](https://www.youtube.com/watch?v=KhdMgT9VbHs) that covers the subject of event types.
+
+See Splunk's [documentation on event types](https://docs.splunk.com/Documentation/Splunk/latest/Knowledge/Abouteventtypes) for further information.
+
+###Tags
+
+Tags enable you to assign names to specific field and value combinations. This includes event type, host, source and source type field value combinations. Tags tend to work hand-in-hand with event types.
+An example of the use of tags might be to create an `authentication` tag as:
+
+	`eventtype=windows_successful_login
+	eventtype=windows_failed_login
+	eventtype=vpn_successful_login
+	eventtype=vpn_failed_login`
+
+###Permissions, users, roles and apps
+
+###Macros
+
+###Datamodels and acceleration
+
+###Configuration Files
+
+###The data pipeline
+
+###Alerts
+
+##Using the InfoSec app
+
+##Troubleshooting
 
 
-## Support
+##Support
 
 * The InfoSec App for Splunk is built by [Splunk Works](https://splunkbase.splunk.com/apps/#/author/splunklabs) and is developer supported. More information on support can be found on [Splunkbase](https://splunkbase.splunk.com/app/4240/#/details).
 
@@ -381,7 +449,7 @@ If you have issues and require some assistance post a question to [Splunk Answer
 Get involved, try it out, ask questions, and make
 new friends!
 
-## Contributing
+##Contributing
 
 We welcome feedback and contributions from the community! Please see our
 [contribution guidelines](CONTRIBUTING.md) for more information on how
