@@ -251,8 +251,6 @@ The method for installing the InfoSec app will vary slightly between Splunk Ente
    
 5. Press the green "Install" button for the InfoSec App for Splunk. The process will be slightly different between Splunk Cloud and Splunk Enterprise.
 
-    Note: The ability to install Apps and Add-ons directly into your Splunk environment requires internet connectivity. Your Splunk environment must be able to access https://splunkbase.splunk.com over port TCP/443. If searching for additional apps like the InfoSec app is not producing any results, you may have a problem with Internet connectivity. If the only method of gaining access is through a proxy server, then this must be configured. Instructions on how to configure Splunk to use your HTTP Proxy Server can be found [here](https://docs.splunk.com/Documentation/Splunk/latest/Admin/ConfigureSplunkforproxy). If configuring Internet access for your Splunk environment is not possible, you can still install apps manually via a two step process. You will need to download the apps from [Splunkbase](https://splunkbase.splunk.com) to your desktop and then install the apps into your Splunk environment via "[Install app from file](https://community.splunk.com/t5/Archive/How-to-install-a-splunk-app/m-p/87912)". This is not applicable for Splunk Cloud.
-
    **Splunk Cloud**
 
    When asked to confirm, select "Continue".
@@ -263,9 +261,14 @@ The method for installing the InfoSec app will vary slightly between Splunk Ente
       
    <img src="./Images/Login&Install.png" width=50% height=50%>
    
+    Note: The ability to install Apps and Add-ons directly into your Splunk environment requires internet connectivity. Your Splunk environment must be able to access https://splunkbase.splunk.com over port TCP/443. If searching for additional apps like the InfoSec app is not producing any results, you may have a problem with Internet connectivity. If the only method of gaining access is through a proxy server, then this must be configured. Instructions on how to configure Splunk to use your HTTP Proxy Server can be found [here](https://docs.splunk.com/Documentation/Splunk/latest/Admin/ConfigureSplunkforproxy).
+    
+    If configuring Internet access for your Splunk environment is not possible, you can still install apps manually via a two step process. You will need to download the apps from [Splunkbase](https://splunkbase.splunk.com) to your desktop and then install the apps into your Splunk environment via "[Install app from file](https://community.splunk.com/t5/Archive/How-to-install-a-splunk-app/m-p/87912)". This app instalation method is not applicable for Splunk Cloud.
+
    If you have a larger distributed Splunk Enterprise environment you only need to install the InfoSec app on the search head. It does not need to be installed on the indexers.  
    
 The InfoSec app for Splunk should now be installed. To confirm this, select the InfoSec app from the App menu (see step 2, above). You should be presented with the "Security Posture" dashboard.
+
 
 **Additional Apps and Add-ons**
 
@@ -539,7 +542,7 @@ There are three metrics on this dashboard that need to be verified:
 
 	![Data Model Data](./Images/ConfigurationDataModelsData.png)
 	
-	In the above example, there is no data feeding the CIM_Authentication, or any of the other data models. Don't be concerned if some of the data models in your environment have no data. Within your Splunk environment you may not have a data source to feed some of these data models. Follow the steps in Validating Data Sources to confirm your environment is correctly configured for each of these data models.
+	In the above example, there is no data feeding the CIM_Authentication, or any of the other data models. Don't be concerned if some of the data models in your environment have no data. Within your Splunk environment you may not have a data source to feed some of these data models. Follow the steps in [Validating Data Sources](#validating-data-sources) to confirm your environment is correctly configured for each of these data models.
 
 2. The Acceleration Status for each of the required InfoSec data models.
 
