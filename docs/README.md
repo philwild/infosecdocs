@@ -21,7 +21,7 @@ The InfoSec app for Splunk aims to achieve the following:
 
 ## Before we start
 
-This documentation is not designed to replace formal training or Splunk's own documentation. It focusses on the introductory steps and knowledge required to get the InfoSec app up and running in a short amount of time. It assumes the user is fairly new to Splunk and may not have yet grasped many of Splunk's fundamental concepts. Consider this documentation as a fast-start guide to getting the InfoSec app up and running within your environment. This documentation will introduce you to key Splunk concepts, lightly touching on each. Links will be provided to Splunk's documentation so you can delve further into Splunk's capabilities, as required. Although this document focuses on the InfoSec App for Splunk, the topics covered can be applied to other apps and configurations within Splunk.
+This documentation is not designed to replace formal training or Splunk's own documentation. It focusses on the introductory steps and knowledge required to get the InfoSec app up and running in a short amount of time. It assumes the user is fairly new to Splunk and may not have yet grasped many of Splunk's fundamental concepts. Consider this documentation as a fast-start guide to getting the InfoSec app up and running within your environment. This documentation will introduce you to key Splunk concepts, lightly touching on each. Links will be provided to Splunk's documentation so you can delve further into Splunk's capabilities, as required. Although this document focuses on the InfoSec App for Splunk, the topics covered may be applied to other apps and configurations within Splunk.
 
 ## Introduction to the InfoSec app
 
@@ -333,9 +333,17 @@ Web (new requirement starting from InfoSec v1.5)
 
 ##Concepts and definitions
 
-The InfoSec app relies on accelerated data models and the Common Information model (CIM) to provide a consistent and normalised view into the event data that you'll bring into Splunk. Understanding how to configure and use the CIM and data models also requires an understanding of indexes, sourcetypes, sources, fields, eventtypes, tags, macros and a few other concepts.
+The InfoSec app relies on accelerated data models and the Common Information model (CIM) to provide a consistent and normalised view into the event data that you'll bring into Splunk. Understanding how to configure and use the CIM and data models may require an understanding of indexes, source types, sources, fields, event types, tags, macros and a few other concepts, depending on the data sources that you are feeding into Splunk.
 
-Splunk provides a [Splexicon](https://docs.splunk.com/Splexicon), which is a glossary of technical terminology that is specific to Splunk software. Definitions include links to related information in the Splunk documentation.
+Splunk provides a [Splexicon](https://docs.splunk.com/Splexicon), which is a glossary of technical terminology that is specific to Splunk software. Definitions within the Splexicon include links to related information in the Splunk documentation.
+
+A high-level overview of some of some of this terminology is provided below to assist with understanding how to configure and troubleshoot the installation of the InfoSec app. If you are familiar with these Splunk concepts, skip to [Configuration](##Configuration).
+
+###Kowledge Objects
+
+A knowledge object is a user-defined entity that enriches the existing event data within Splunk. Knowledge objects include saved searches, event types, tags, field extractions, lookups, reports, alerts, data models and workflow actions. The term knowledge object refers to these objects within Splunk's language and documentation. Further information can be found [here](https://docs.splunk.com/Splexicon:Knowledgeobject).
+
+Splunk's documentation will also refer to a knowledge manager, who is someone with administrative, or power user, privileges who can share and manage the permissions of knowledge objects. 
  
 ###Common Information Model (CIM)
 
@@ -416,24 +424,144 @@ See Splunk's [documentation on event types](https://docs.splunk.com/Documentatio
 ###Tags
 
 Tags enable you to assign names to specific field and value combinations. This includes event type, host, source and source type field value combinations. Tags tend to work hand-in-hand with event types.
-An example of the use of tags might be to create an `authentication` tag as:
+An example of the use of tags might be to create an `authentication` tag that matches:
 
-	`eventtype=windows_successful_login
+	eventtype=windows_successful_login
 	eventtype=windows_failed_login
 	eventtype=vpn_successful_login
-	eventtype=vpn_failed_login`
+	eventtype=vpn_failed_login
+	
+A search within Splunk for `tag = authentication` will return all events that match any of the above event types.
 
-###Permissions, users, roles and apps
+See Splunk's [documentation on tags](https://docs.splunk.com/Documentation/Splunk/latest/Knowledge/Abouttagsandaliases) for further information.
+
+###Permissions, users and roles
+
+Permissions within Splunk define who has access to data and knowledge objects. Roles within Splunk are given permission to access data within indexes and access apps and knowledge objects. Splunk users inherit the permissions granted to the roles that have been assigned to the user.
+
+When first created within Splunk web, knowledge objects are private and only accessible to the user that created them. A Splunk knowledge manager can share these objects with other Splunk users by adjusting the permissions of the objects. Knowledge objects can be shared with individual roles, or everyone. Knowledge objects can also be restricted to be available within a single app, or globally.
+
+Permissions for knowledge objects can be managed through the Settings menu within Splunk web.
+
+Further information can be found in Spunk's [documentation](https://docs.splunk.com/Splexicon:Permissions).
+
+###Apps
+
+An App is a collection Splunk configurations designed to address a use-case with Splunk. The InfoSec App for Splunk is an example of a Splunk app. An app may contain combinations of dashboards, reports, alerts, knowledge objects, lookups, scripted inputs, menus and other components. Together, these components form a functioning application within the Splunk platform. In the same way that roles are given permissions to access and use knowledge objects, Splunk users can only access the apps (and the included knowledge obejects) that they have been given permission to use. You can create your own apps in Splunk, or download and install apps from [Splunkbase](https://splunkbase.splunk.com).
+
+When browsing Splunkbase, you may notics that there are two types of apps and that the app contents can include Inputs, Alert Actions and Visualisations.
+
+   <img src="./Images/Apps&Addons.png" width=50% height=50%>
+
+All these are considered to be Splunk apps. An Add-on is just an app designed to provide additional capabilities to the Splunk platform, such as getting data in, or providing saved searches or macros. A Splunk app is a packaged up directory of Splunk configuration files and any required supporting objects. The configurations might include dashboards and alerts, they may include javascript or something else that enables an additional visualisation type within Splunk, or code that enables communications with an external alerting framework or third-party application. Regardless of the content of the app, installation and configuration of the app in Splunk is handled in the same way.
 
 ###Macros
 
+Search macros contain snippets of searches for re-use in other Splunk searches. A search macro is referenced in other searches through its name. You enclose the name of a search macro within the back-tick character to reference it in another search. As an example, you could create a search macro named `iis_logs` with the following definition:
+
+    (index=windows OR index=dmz sourcetype=iis)
+
+When searching for events within Splunk, you can reference the macro within your search
+
+    `iis_logs` cs_username="fred"
+    
+Splunk will expand the macro when performing the search resulting the foloowing search being run
+
+    (index=windows OR index=dmz sourcetype=iis) cs_username="fred"
+
+data models make use of search macros to define what data should be included within the data model.
+
+Further information can be found in Splunk's [documentation](https://docs.splunk.com/Splexicon:Searchmacro).
+
+
 ###Datamodels and acceleration
+
+A data model is a form of knowledge object that applies structure to the event data within Splunk. each data model within Splunk represents a category of event data (e.g. authentication data). Data models are powered by root searches that define what data is represented and available within the data model. The data model overlays a schema onto the event data identified by the base search and presents the data to the user as columns of fields over rows of data. Splunk's pivot and datasets interface can be used to query data models to build visualisations and reports.
+
+The schema that is applied to the event data in the form of a data model can be accelerated in Splunk. This is called an accelerated data model. Accelerated data models power apps such as Enterprise Security and the infoSec app. A data model that has been accelerated cannot be edited. If you need to edit an accelerated data model, you must disable acceleration.
+
+Splunk accelerates data models by running regular scheduled searches (every 5 minutes) across the underlying event data, building data sumaries behind the scene with the help of Splunk's high performance analytics store functionality.
+
+Data models can only be accelerated if they are shared and not private.
+
+Further information can be found in Splunk's [documentation](https://docs.splunk.com/.Splexicon:Datamodel).
 
 ###Configuration Files
 
+All configuration settings within Splunk are stored within configuration files that can be manually edited. Interacting and managing Splunk through the Splunk web interface simplifies the management of the underlying configuration files. If you are using Splunk Cloud, you actually don't have access to the underlying configurations files within Splunk and must perform all management tasks through Splunk web.
+
+Whether you are using Splunk Cloud or Splunk Enterprise, there will still be times where you will need to modify a configuration file to perform some task within Splunk. Modifying configuration files is most often associated with [getting data in](https://docs.splunk.com/Documentation/SplunkCloud/8.0.2007/Admin/IntroGDI).
+
+Splunk configuration files are stored within the `etc` directory within the Splunk installation directory. Under Linux, this defaults to `/opt/splunk`. Under Windows, this defaults to `C:\Program Files\Splunk`. Modifying configuration files within the Splunk directory often requires the Splunk service to be restarted so that Splunk adopts the changes that you have made.
+
+Splunk applies an [order of precedence](https://docs.splunk.com/Documentation/Splunk/latest/Admin/Wheretofindtheconfigurationfiles) to configuration files to allow `default` configurations to be overridden by `local` configurations. It is Splunk best-practice to never modify a `default` configuration. A Splunk administrator should always copy the settings into a `local` copy of the configuration file.
+
+Further information can be found [here](https://docs.splunk.com/Splexicon:Configurationfile#:~:text=A%20file%20(also%20referred%20to,SPLUNK_HOME%2Fetc%2Fsystem%2Fdefault).
+
 ###The data pipeline
 
+The Splunk data pipeline describes the route that data takes moving from its original source to its transformation into searchable events that encapsulate valuable knowledge. The data pipeline includes these segments:
+
+* [Input](https://docs.splunk.com/Splexicon:Input)
+* [Parsing](https://docs.splunk.com/Splexicon:Parsing)
+* [Indexing](https://docs.splunk.com/Splexicon:Index)
+* [Search](https://docs.splunk.com/Splexicon:Search)
+
+![](https://docs.splunk.com/images/5/5e/Datapipeline1_60.png)
+
 ###Alerts
+
+Alerts in Splunk are used to monitor and respond to specific events that are detected by a saved search that is run at a scheduled time. An alert will initiate one or more alert actions when the alert triggers.
+
+The InfoSec app utilises alerts to detect notable events within your data.
+
+![](./Images/ManageAlerts.png)
+
+Further information on working with Alerts can be found in Splunk's [documentation](https://docs.splunk.com/Documentation/Splunk/latest/Alert/Aboutalerts).
+
+##Configuration
+
+After performing the installation steps documented above, start by confirming the Health of the InfoSec app within your environment. 
+
+1. Navigate to the InfoSec app by selecting the `InfoSec` app from the App menu at the top of the Splunk web interface.
+
+	![InfoSec app](./Images/ConfigurationInfoSec.png)
+	
+2. Select the `Health` dashboard from within the InfoSec app.
+
+	![Health dashboard](./Images/ConfigurationHealth.png)
+
+The first two rows of visuals within the Health dashboard dashboard will give you an indication of the data within your Splunk environment.
+
+There are three metrics on this dashboard that need to be verified:
+
+1. The count of events feeding each of the data models required for the InfoSec app.
+
+	![Data Model Data](./Images/ConfigurationDataModelsData.png)
+	
+	In the above example, there is no data feeding the CIM_Authentication, or any of the other data models. Don't be concerned if some of the data models in your environment have no data. Within your Splunk environment you may not have a data source to feed some of these data models. Follow the steps in Validating Data Sources to confirm your environment is correctly configured for each of these data models.
+
+2. The Acceleration Status for each of the required InfoSec data models.
+
+	![Data Model Data](./Images/ConfigurationDataModelAcceleration.png)
+	
+	In the above example, the Health dashboard is reporting that there are no accelerated data models. You should only enable acceleration for the data models that are being fed with data. Follow the steps in Accelerating Data Models to confirm your environment is correctly configured.
+	
+3. The Installation status for each of the required supporting Apps/Add-ons for InfoSec.
+
+	![Installed Add-ons](./Images/ConfigurationInstalledAdd-ons.png)
+	
+	In the above example, the Health dashboard is reproting that all the required Add-ons are installed. If you had correctly followed the Installation Instructions above, your Health dashboard should also be reporting that all Add-ons are installed. If this is not the case, follow the steps in Add-on Configuration to confirm your environment is correctly configured.
+
+###Validating Data Sources
+
+You will need to confirm the data sources for each of the InfoSec data models listed on the Health dashboard. In the example above, the authentication data model is receiving no event data. We'll walk through the steps to validate the configuration.
+
+It would pay to validate the data sources for each of the data models, even if the Health app is reporting that data is being fed into the data model. Within your environment, you may find that only some of your data is being fed into a data model and you may need to adjust the configuration.
+
+Repeat this process for each data model.
+
+1. 
 
 ##Using the InfoSec app
 
