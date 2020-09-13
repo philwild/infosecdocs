@@ -124,14 +124,9 @@ A number of supporting Splunk Apps and Add-ons from Splunkbase must also be inst
 The process to install these additional Apps and Add-ons is the same as you've just completed when installing the InfoSec app. Repeat the above steps to install each of these additional Apps and Add-ons.
 
 Once you've reached this step, you are ready to start configuring the InfoSec App for Splunk.
-   
-
-## Configuration
-
-### Data Sources   
 
 
-
+## Data Sources   
 
 Notes:
 
@@ -389,7 +384,7 @@ There are three metrics on this dashboard that need to be verified:
 
 	![Data Model Data](./Images/ConfigurationDataModelAcceleration.png)
 	
-	In the above example, the Health dashboard is reporting that there are no accelerated data models. You should only enable acceleration for the data models that are being fed with data. Follow the steps in [Accelerating Data Models](#accelerating-data-models) to confirm your environment is correctly configured.
+	In the above example, the Health dashboard is reporting that there are no accelerated data models. You should only enable acceleration for the data models that are being fed with data. Follow the steps in [Accelerating Data Models](#accelerate-data-models) to confirm your environment is correctly configured.
 	
 3. The Installation status for each of the required supporting Apps/Add-ons for InfoSec.
 
