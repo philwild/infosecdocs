@@ -77,7 +77,13 @@ The method for installing the InfoSec app will vary slightly between Splunk Ente
 
 1. Log into your Splunk environment with an account that has administrative privileges.
 
-2. Select the App menu within the black menu bar at the top left of the Splunk web user interface (just to the right of the Splunk logo). 
+	If you are a Splunk Cloud customer and are new to using Splunk Cloud. Splunk will have supplied you with two instance:
+	
+    * `https://<stackname>.splunkcloud.com` - This instance is your primary splunk environment and is where you should install the InfoSec app. Log into this instance to perform the installation.
+        
+    * `https://idm-<stackname>.splunkcloud.com` - This is an 'Inputs Data Manager'. It is a heavy forwarder that Splunk provides to assist with the collection of event data from cloud based services like AWS, Azure, etc.	
+
+2. From within the Splunk web interface, select the App menu within the black menu bar at the top left of the user interface (just to the right of the Splunk logo). 
 
    <img src="./Images/AppMenu.png" width=50% height=50%>
 
@@ -98,13 +104,13 @@ The method for installing the InfoSec app will vary slightly between Splunk Ente
 
    **Splunk Enterprise**
 
-   Login with your splunk.com credentials to install the app, not your Splunk Enterprise instance account. You will also need to accept the Terms and Conditions before being able to proceed.
+   Within the presented dialog box, login with your splunk.com credentials to install the app. The required credentials are what you would use to login to the support portal on the splunk.com website or Splunkbase and is not your Splunk Enterprise instance account login (e.g. administrator, or whatever you have created or been assigned). You will also need to accept the Terms and Conditions by checking the box before being able to proceed.
       
    <img src="./Images/Login&Install.png" width=50% height=50%>
    
    Note: The ability to install Apps and Add-ons directly into your Splunk environment requires internet connectivity. Your Splunk environment must be able to access https://splunkbase.splunk.com over port TCP/443. If searching for additional apps like the InfoSec app is not producing any results, you may have a problem with Internet connectivity. If the only method of gaining access is through a proxy server, then this must be configured. Instructions on how to configure Splunk to use your HTTP Proxy Server can be found [here](https://docs.splunk.com/Documentation/Splunk/latest/Admin/ConfigureSplunkforproxy).
     
-   If configuring Internet access for your Splunk environment is not possible, you can still install apps manually via a two-step process. You will need to download the apps from [Splunkbase](https://splunkbase.splunk.com) to your desktop and then install the apps into your Splunk environment via "[Install app from file](https://community.splunk.com/t5/Archive/How-to-install-a-splunk-app/m-p/87912)". This app instalation method is not applicable for Splunk Cloud.
+   If configuring Internet access for your Splunk environment is not possible, you can still install apps manually via a two-step process. You will first need to download the apps from [Splunkbase](https://splunkbase.splunk.com) to your desktop. Next, you will need to install the apps into your Splunk environment via "[Install app from file](https://community.splunk.com/t5/Archive/How-to-install-a-splunk-app/m-p/87912)". This app instalation method is not applicable for Splunk Cloud.
 
    If you have a larger distributed Splunk Enterprise environment, you only need to install the InfoSec app on the search head. It does not need to be installed on the indexers.  
    
