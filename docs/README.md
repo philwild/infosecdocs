@@ -5,9 +5,13 @@ The [InfoSec App for Splunk](https://splunkbase.splunk.com/app/4240/) is a free 
 The InfoSec App for Splunk should not to be confused with [Enterprise Security](https://www.splunk.com/en_us/software/enterprise-security.html), Splunk's premium security solution. Although both solutions are security solutions, the features and capabilities of Enterprise Security are significantly deeper than what is available within the InfoSec app.
 
 InfoSec app for Splunk is an entry, or starter level security solution powered by the Splunk platform. It is
-designed to address the most common security use cases, including continuous monitoring and security investigations. InfoSec app also includes a number of advanced threat detection use cases that can be further expanded using security resources available for Splunk like the [Security Essentials app for Splunk](https://splunkbase.splunk.com/app/3435/).
+designed to address the most common security use cases, including continuous monitoring and security investigations. The InfoSec app also includes a number of advanced threat detection use cases that can be further expanded using security resources available for Splunk like the [Security Essentials app for Splunk](https://splunkbase.splunk.com/app/3435/) from [Splunkbase](https://splunkbase.splunk.com). The Security Essentials app includes hundreds of additional security controls that can be easily integrated into the InfoSec app. Splunk's [Machine Learning Toolkit](https://splunkbase.splunk.com/app/2890/) can be used to enable advanced ML based correlation searches within the InfoSec app to detect and alert on threats.
 
-Splunk Apps provide solutions for many common use cases. They provide specialised insight into your data and systems with pre-configured dashboards, reports, data inputs, and saved searches. Apps for Splunk are available from [Splunkbase](https://splunkbase.splunk.com/). The Splunkbase library has 1000+ apps and add-ons from Splunk, our partners, and our community. They can be directly downloaded, installed and configured within your Splunk environment.
+The Splunkbase library has 1000+ apps and add-ons from Splunk, our partners, and our community. They can be directly downloaded, installed and configured within your Splunk environment. Splunk Apps provide solutions for many common use cases. They provide specialised insight into your data and systems with pre-configured dashboards, reports, data inputs, and saved searches which can supplement or be integrated with the InfoSec app.
+
+Please visit [Splunkbase](https://splunkbase.splunk.com/) to see what is available.
+
+Cyber Security is a journey, not a destination. The InfoSec app configuration steps and integrations with Security Essentials, the Common Information Model, and other Splunk apps and add-ons, are foundational steps towards the adoption of Splunk's Premium security platform, including [Enterprise Security](https://www.splunk.com/en_us/software/enterprise-security.html) and [Phantom](https://www.splunk.com/en_us/software/splunk-security-orchestration-and-automation.html).
 
 ## Product Goals
 
@@ -16,8 +20,8 @@ The InfoSec app for Splunk aims to achieve the following:
 * Provide an entry level security solution to new and existing Splunk customers that are not yet ready or able to invest in Splunk's Enterprise Security platform.
 * Make it easy to direct Splunk's powerful features towards security.
 * Provide a single pane view of your security events and posture.
-* Allow the user to investigate security alerts and incidents.
-* Provide a base platform that can be customised and expanded to meet your security needs using additional apps and add-ons from Splunkbase.
+* Allow the user to easily investigate security alerts and incidents.
+* Provide a base security platform that can be customised and expanded to meet your security needs using the additional apps and add-ons from Splunkbase.
 
 ## Before we start
 
@@ -25,164 +29,107 @@ This documentation is not designed to replace formal training or Splunk's own do
 
 ## Introduction to the InfoSec app
 
-The InfoSec app provides the user with a number of pre-configured and customisable security focussed dashboards and alerts. 
+![Security Posture](./Images/SecurityPosture.png)
 
-* Overview
+The InfoSec app provides the user with a number of pre-configured and customisable security focussed dashboards and alerts. The InfoSec app focuses on the most common security focused technology components within your typical corporate environment, being:
 
-Description
+* Firewall (including next-generation firewalls)
+* Authentication (e.g. Active Directory and/or LDAP)
+* Antivirus (including next-generation antivirus)
 
-[** Video **]
+Focussing on these three security domains, the InfoSec app provides a comprehensive series of dashboards to help protect your network, users and intellectual property from external adversaries and malicious insider threats. It will help you investigate incidents and automate compliance tasks.
 
+The InfoSec app also provides executive level reporting metrics, trends and summaries. The app can assist with meeting compliance requirements and completing audits faster through the use of customisable reports mapped to common compliance frameworks such as NIST HIPPA PCI and ISO.
 
+An short introductory video is available [here](https://youtu.be/8Qx56cl24dw).
 
-## Getting Data In
+## Training
 
-### Forwarders
-### HTTP Event Collector (HEC)
-### Apps and Add-ons
+If you are new to Splunk or need to brush up on your Splunk skills, there are a number of free resources available to help you with your learning journey:
 
-* Introduction to Apps and Add-ons
-* Splunkbase
-* Installing Apps and Add-ons
+* Splunk [Fundamentals 1](https://www.splunk.com/en_us/training/free-courses/splunk-fundamentals-1.html)
+
+  This is a free Splunk training cource. It will teach you how to search and navigate in Splunk, use fields, get statistics, create reports, dashboards, lookups, alerts, and more. Scenario-based examples and hands-on challenges will enable you to create robust searches, reports, and charts. It will also introduce you to Splunk's datasets features and Pivot interface.
+  
+* Splunk [Infrastructure Overview eLearning](https://www.splunk.com/en_us/training/free-courses/splunk-infastructure-overview.html)
+
+  This self-paced course gives users an overview of the Splunk Enterprise infrastructure. Users get a high-level look at how to grow a Splunk deployment from a single instance to a distributed environment. With tips and best practices for deploying, extending and integrating Splunk while showing the user what is happening behind the scenes.
+  
+Splunk also provides formal training covering a number of learning paths. Information can be found on Splunk's [training website](https://www.splunk.com/en_us/training.html).
+
+Splunk provides a [Quick Reference Guide](https://www.splunk.com/pdfs/solution-guides/splunk-quick-reference-guide.pdf) in PDF format that covers Splunk concepts and commands.
+
+There's also a bunch of [how-to and other videos](https://www.splunk.com/en_us/resources/videos.html) available on the Splunk website to entertain and help you.
+
+##Concepts and Definitions
+
+The InfoSec app relies on accelerated data models and the Common Information model (CIM) to provide a consistent and normalised view into the event data that you'll bring into Splunk. Understanding how to configure and use the CIM and data models may require an understanding of indexes, source types, sources, fields, event types, tags, macros and a few other concepts, depending on the data sources that you're feeding into Splunk.
+
+Splunk provides a [Splexicon](https://docs.splunk.com/Splexicon), which is a glossary of technical terminology that is specific to Splunk software. Definitions within the Splexicon include links to related information in the Splunk documentation. It is a good place to start if you come across a Splunk word or term that you want to understand further.
+
+A high-level overview of some of some of this terminology is provided below to assist with understanding how to configure, manage and troubleshoot the installation and ongoing use of the InfoSec app. If you are familiar with these Splunk concepts, skip to [Configuration](##configuration).
+
+### Forwarder
+
+A Forwarder is Splunk's data collection worker bee. It provides reliable, secure data collection from remote sources and forwards that data into your Splunk environment for indexing and consolidation. The forwarder can scale to tens of thousands of remote systems, collecting terabytes of data, if required. Splunk's Universal Forwarder is available for installation on diverse computing platforms and architectures. There are two forms of forwarder for the Splunk platform.
+
+* Universal forwarder (UF) - A lightweight, dedicated, streamlined forwarder designed to efficiently send data to your Splunk environment. The Universal forwarder does not have a user interface and is typically managed by a [Deployment Server](##deployment-server).
+
+  In most situations, the universal forwarder is the best way to forward data into Splunk.
+  
+* Heavy Forwarder (HF) - A more capable forwarder platform with the ability to integrate with additional APIs and services. A heavy forwarder is a full Splunk installation, configured to assume the role of just collecting and forwarding data. A heavy forwarder can route data to additional destinations, including non-splunk platforms. It can also parse/filter data within the pipeline and can index data locally, if required.
+
+In most cases, data collection should be performed by the universal forwarder.
+
+See [About forwarding and receiving](http://docs.splunk.com/Documentation/Forwarder/latest/Forwarder/Aboutforwardingandreceiving) in Splunk's documentation for further information.
+
 
 ### Inputs Data Manager (IDM)
 
+The Splunk Inputs Data Manager (IDM) is a Splunk managed Heavy Forwarder that is bundled with your Splunk Cloud subscription. It is provided to you to assist with onboard cloud-native data sources like AWS, Azure, GCP, Salesforce, and others. Using the IDM removes the need to pass these cloud-native API based data sources though a self-provisioned forwarder either on-premises or within a cloud tenancy. The IDM does not support all the inputs that a traditional Heavy Forwarder can. It will not support UDP or TCP inputs such as syslog. Installing Add-ons onto the IDM requires the creation of a support request.
+
+For further information, please see [here](https://docs.splunk.com/Splexicon:IDM).
+
+### Deployment server
+
+The Splunk Deployment Server is used to manage a fleet of forwarders within your environment. The deployment server acts as a centralised configuration manager, grouping and collectively manageing any number of Splunk forwarder instances. Remotely managed forwarders under the control of the deployment server are called deplyment clients. These clients poll the deployment server for new configurations and apps (deployment apps), downloading and enabling them as they become available.
+
+Any full installation of Splunk can function as a deplyment server although for larger deployments, it is recommended that a separate server perform this task (i.e. not one of your indexers or your search head(s)).
+
+If you are using Splunk Cloud, you will still an on-premises deplyment server to manage your forwarder fleet.
+
+Further information can be found [here](https://docs.splunk.com/Splexicon:Deploymentserver).
+
+### HTTP Event Collector (HEC)
+
+The HTTP event collector is a Splunk service that can run on Splunk indexers or heavy forwarders. The http event collector can efficiently receive data over HTTP (or HTTPS) directly from applications or services.
+
+Further information can be found [here](https://dev.splunk.com/enterprise/docs/devtools/httpeventcollector/).
+
+### Apps and Add-ons
+
+Apps and Add-ons extend Splunk's out-of-the-box capabilities and enable a much faster time-to-value than other solutions as you are taking advantage of existing efforts to onboard and visualise data, or interface with thrid-party systems.
+
+An App is a collection Splunk configurations designed to address a use-case with Splunk. The [InfoSec App for Splunk](https://splunkbase.splunk.com/app/4240/) is an example of a Splunk app. An app may contain combinations of dashboards, reports, alerts, knowledge objects, lookups, scripted inputs, menus and other components. Together, these components form a functioning application within the Splunk platform. In the same way that roles are given permissions to access and use knowledge objects, Splunk users can only access the apps (and the included knowledge objects) that they have been given permission to use. You can create your own apps in Splunk or download and install apps from [Splunkbase](https://splunkbase.splunk.com).
+
+When browsing Splunkbase, you may notice that there are two types of apps and that the app contents can include Inputs, Alert Actions and Visualisations.
+
+   <img src="./Images/Apps&Addons.png" width=50% height=50%>
+
+All these are considered to be Splunk apps. An Add-on is just an app designed to provide additional capabilities to the Splunk platform, such as getting data in, or providing saved searches or macros. A Splunk app is a packaged-up directory of Splunk configuration files and any required supporting objects. The configurations might include dashboards and alerts, they may include javascript or something else that enables an additional visualisation type within Splunk, or code that enables communications with an external alerting framework or third-party application. Regardless of the content of the app, installation and configuration of the app in Splunk is usually handled in the same way.
+
+####Installing Apps and Add-ons
+
+Not all Apps and Add-ons are supported by Splunk. Most have been created by Splunk's partners and customers and the level of documentation and support will often vary. All apps and Add-ons will have some level of community support through [Splunk Answers](https://answers.splunk.com). The App or Add-on overview page on Splunkbase will show if the app is CIM compliant.
+
+ <img src="./Images/CIMCompliant.png" width=30% height=30%>
+ 
+ The overview page will also indicate where to go to get help and where to find support, if available.
+
 **Splunk supported Add-ons**
 
-[Full list can be found here](https://docs.splunk.com/Documentation/AddOns)
+Apps and Add-ons built by Splunk are usually Splunk supported. Documentation for Splunk supported Apps and Add-ons is usually contained within Splunk's documentation website. See the [documentation](https://docs.splunk.com/Documentation/AddOns) for the Splunk supported apps and add-ons.
 
-
-
-## Installation
-
-###Installation Prerequisites
-
-The InfoSec app for Splunk can be installed directly into Splunk in the same way as other available apps from [Splunkbase](https://splunkbase.splunk.com/).
-
-It's assumed that you already have Splunk installed somewhere, or you're using Splunk Cloud. This document does not cover installing and configuring Splunk for the first time. If you need to do this before proceeding further, please view the following resources:
-
-* [Installing Splunk on Linux documentation](https://docs.splunk.com/Documentation/Splunk/latest/Installation/InstallonLinux). There's also a video [here](https://www.splunk.com/en_us/training/videos/installing-splunk-enterprise-on-linux.html).
-
-* [Installing Splunk on Windows documentation](https://docs.splunk.com/Documentation/Splunk/latest/Installation/InstallonWindows). There's also a video [here](https://www.splunk.com/en_us/resources/videos/installing-splunk-on-windows.html).
-
-* [Start Splunk Enterprise for the first time](https://docs.splunk.com/Documentation/Splunk/latest/Installation/StartSplunkforthefirsttime)
-
-* [Installing the Splunk Enterprise License](https://docs.splunk.com/Documentation/Splunk/latest/Installation/Installalicense)
-
-* [A short introductory video to using the Splunk web interface](https://www.splunk.com/en_us/resources/videos/splunk-web-demo.html)
-
-###Installation Steps
-
-The method for installing the InfoSec app will vary slightly between Splunk Enterprise and Splunk Cloud. If there is a difference within the steps. Each will be explained.
-
-1. Log into your Splunk environment with an account that has administrative privileges.
-
-	If you are a Splunk Cloud customer and are new to using Splunk Cloud. Splunk will have supplied you with two instance:
-	
-    * `https://<stackname>.splunkcloud.com` - This instance is your primary splunk environment and is where you should install the InfoSec app. Log into this instance to perform the installation.
-        
-    * `https://idm-<stackname>.splunkcloud.com` - This is an 'Inputs Data Manager'. It is a heavy forwarder that Splunk provides to assist with the collection of event data from cloud based services like AWS, Azure, etc.	
-
-2. From within the Splunk web interface, select the App menu within the black menu bar at the top left of the user interface (just to the right of the Splunk logo). 
-
-   <img src="./Images/AppMenu.png" width=50% height=50%>
-
-3. Select Find More Apps
-
-   <img src="./Images/FindMoreApps.png" width=50% height=50%>
-  
-
-4. Within the search menu on the top-left of the page, search for "infosec app for splunk". The InfoSec App for Splunk should be listed as one of the available apps for installation.
-
-   <img src="./Images/Search&Install.png" width=100% height=100%>
-   
-5. Press the green "Install" button for the InfoSec App for Splunk. The process will be slightly different between Splunk Cloud and Splunk Enterprise.
-
-   **Splunk Cloud**
-
-   When asked to confirm, select "Continue".
-
-   **Splunk Enterprise**
-
-   Within the presented dialog box, login with your splunk.com credentials to install the app. The required credentials are what you would use to login to the support portal on the splunk.com website or Splunkbase and is not your Splunk Enterprise instance account login (e.g. administrator, or whatever you have created or been assigned). You will also need to accept the Terms and Conditions by checking the box before being able to proceed.
-      
-   <img src="./Images/Login&Install.png" width=50% height=50%>
-   
-   Note: The ability to install Apps and Add-ons directly into your Splunk environment requires internet connectivity. Your Splunk environment must be able to access https://splunkbase.splunk.com over port TCP/443. If searching for additional apps like the InfoSec app is not producing any results, you may have a problem with Internet connectivity. If the only method of gaining access is through a proxy server, then this must be configured. Instructions on how to configure Splunk to use your HTTP Proxy Server can be found [here](https://docs.splunk.com/Documentation/Splunk/latest/Admin/ConfigureSplunkforproxy).
-    
-   If configuring Internet access for your Splunk environment is not possible, you can still install apps manually via a two-step process. You will first need to download the apps from [Splunkbase](https://splunkbase.splunk.com) to your desktop. Next, you will need to install the apps into your Splunk environment via "[Install app from file](https://community.splunk.com/t5/Archive/How-to-install-a-splunk-app/m-p/87912)". This app instalation method is not applicable for Splunk Cloud.
-
-   If you have a larger distributed Splunk Enterprise environment, you only need to install the InfoSec app on the search head. It does not need to be installed on the indexers.  
-   
-The InfoSec app for Splunk should now be installed. To confirm this, select the InfoSec app from the App menu (see step 2, above). You should be presented with the "Security Posture" dashboard.
-
-
-###Additional Apps and Add-ons
-
-A number of supporting Splunk Apps and Add-ons from Splunkbase must also be installed before you can start using the InfoSec app. These are:
-
-* [Splunk Common Information Model (CIM)](https://splunkbase.splunk.com/app/1621/)
-* [Punchcard visualisation](https://splunkbase.splunk.com/app/3129/)
-* [Force Directed visualisation](https://splunkbase.splunk.com/app/3767/)
-* [Lookup File Editor](https://splunkbase.splunk.com/app/1724/) (new requirement starting from InfoSec v1.5)
-* [Sankey Diagram visualisation](https://splunkbase.splunk.com/app/3112/) (new optional prerequisite for the experimental VPN Access dashboard starting from v1.5.3)
-
-The process to install these additional Apps and Add-ons is the same as you've just completed when installing the InfoSec app. Repeat the above steps to install each of these additional Apps and Add-ons.
-
-Once you've reached this step, you are ready to start configuring the InfoSec App for Splunk.
-
-
-## Data Sources   
-
-Notes:
-
-IMPORTANT: PREREQUISITES
-
-At a minimum, you should have data from the following security sources collected by your Splunk environment:
-
-Firewall data like Cisco ASA, Palo Alto Networks, Check Point, Juniper, Fortinet, etc.
-Active Directory security logs (make sure that your audit policy enables logging failed and successful authentication attempts)
-Antivirus/Malware data like McAfee, Symantec, Trend Micro, etc.
-All data used by InfoSec app must be Common Information Model (CIM)-compliant. The easiest way to accomplish that is to use CIM-compliant Splunk Add-ons for your security devices *(*** See Splunkbase list of CIM add-ons ***)
-*
-
-The following Data Models must be accelerated:
-
-Authentication
-Change (for app version 1.6.x and newer) or Change Analysis (for app version 1.5.3 and older)
-Intrusion_Detection
-Malware
-Network_Sessions
-Network_Traffic
-Endpoint
-Web (new requirement starting from InfoSec v1.5)
-
-### required Data Sources
-
-- Firewall, IDS/IPS data (e.g. Cisco, Palo Alto Networks, Check Point, Fortinet, Juniper)
-
-- Active Directory data (Windows logs from Domain Controllers)
-
-- Malware/antivirus tools data (e.g. Symantec, McAfee, Sophos, Trend Micro)
-
-
-
-
-
-- Microsoft365 or AD
-- Linux Authentication
-- Windows Security Logs
-- Palo Alto Firewall
-- Symantec Endpoint Protection
-- Suricata IDS
-
-##Concepts and definitions
-
-The InfoSec app relies on accelerated data models and the Common Information model (CIM) to provide a consistent and normalised view into the event data that you'll bring into Splunk. Understanding how to configure and use the CIM and data models may require an understanding of indexes, source types, sources, fields, event types, tags, macros and a few other concepts, depending on the data sources that you are feeding into Splunk.
-
-Splunk provides a [Splexicon](https://docs.splunk.com/Splexicon), which is a glossary of technical terminology that is specific to Splunk software. Definitions within the Splexicon include links to related information in the Splunk documentation.
-
-A high-level overview of some of some of this terminology is provided below to assist with understanding how to configure and troubleshoot the installation of the InfoSec app. If you are familiar with these Splunk concepts, skip to [Configuration](##Configuration).
 
 ###Knowledge Objects
 
@@ -286,19 +233,9 @@ Permissions within Splunk define who has access to data and knowledge objects. R
 
 When first created within Splunk web, knowledge objects are private and only accessible to the user that created them. A Splunk knowledge manager can share these objects with other Splunk users by adjusting the permissions of the objects. Knowledge objects can be shared with individual roles, or everyone. Knowledge objects can also be restricted to be available within a single app, or globally.
 
-Permissions for knowledge objects can be managed through the Settings menu within Splunk web.
+Permissions for knowledge objects can be managed through the Settings menu within Splunk web. It is important to understand that permissions related to knowledge objects can impact data models. Fields and Tags that are private cannot feed a data model. Private data models cannot be acelerated, etc. Wen troubleshooting, checking the permissions on knowledge objects can often identify the cause of an issue.
 
 Further information can be found in Spunk's [documentation](https://docs.splunk.com/Splexicon:Permissions).
-
-###Apps
-
-An App is a collection Splunk configurations designed to address a use-case with Splunk. The InfoSec App for Splunk is an example of a Splunk app. An app may contain combinations of dashboards, reports, alerts, knowledge objects, lookups, scripted inputs, menus and other components. Together, these components form a functioning application within the Splunk platform. In the same way that roles are given permissions to access and use knowledge objects, Splunk users can only access the apps (and the included knowledge objects) that they have been given permission to use. You can create your own apps in Splunk or download and install apps from [Splunkbase](https://splunkbase.splunk.com).
-
-When browsing Splunkbase, you may notice that there are two types of apps and that the app contents can include Inputs, Alert Actions and Visualisations.
-
-   <img src="./Images/Apps&Addons.png" width=50% height=50%>
-
-All these are considered to be Splunk apps. An Add-on is just an app designed to provide additional capabilities to the Splunk platform, such as getting data in, or providing saved searches or macros. A Splunk app is a packaged-up directory of Splunk configuration files and any required supporting objects. The configurations might include dashboards and alerts, they may include javascript or something else that enables an additional visualisation type within Splunk, or code that enables communications with an external alerting framework or third-party application. Regardless of the content of the app, installation and configuration of the app in Splunk is handled in the same way.
 
 ###Macros
 
@@ -339,6 +276,8 @@ Whether you are using Splunk Cloud or Splunk Enterprise, there will still be tim
 
 Splunk configuration files are stored within the `etc` directory within the Splunk installation directory. Under Linux, this defaults to `/opt/splunk`. Under Windows, this defaults to `C:\Program Files\Splunk`. Modifying configuration files within the Splunk directory often requires the Splunk service to be restarted so that Splunk adopts the changes that you have made.
 
+Splunk configuration files are disbursed within the `etc` directory structure. Configuration files could be private to the user, or located within an installed or deployed app. 
+
 Splunk applies an [order of precedence](https://docs.splunk.com/Documentation/Splunk/latest/Admin/Wheretofindtheconfigurationfiles) to configuration files to allow `default` configurations to be overridden by `local` configurations. It is Splunk best-practice to never modify a `default` configuration. A Splunk administrator should always copy the settings into a `local` copy of the configuration file.
 
 Further information can be found [here](https://docs.splunk.com/Splexicon:Configurationfile#:~:text=A%20file%20(also%20referred%20to,SPLUNK_HOME%2Fetc%2Fsystem%2Fdefault).
@@ -358,11 +297,151 @@ The Splunk data pipeline describes the route that data takes moving from its ori
 
 Alerts in Splunk are used to monitor and respond to specific events that are detected by a saved search that is run at a scheduled time. An alert will initiate one or more alert actions when the alert triggers.
 
-The InfoSec app utilises alerts to detect notable events within your data.
+The InfoSec app utilises alerts to detect and report on notable events within your data. Understanding how to add, configure and manage alerts is an important skill when it comes to adding additional controls and use-cases to your environment.
 
 ![](./Images/ManageAlerts.png)
 
 Further information on working with Alerts can be found in Splunk's [documentation](https://docs.splunk.com/Documentation/Splunk/latest/Alert/Aboutalerts).
+
+## Installation
+
+###Installation Prerequisites
+
+The InfoSec app for Splunk can be installed directly into Splunk in the same way as other available apps from [Splunkbase](https://splunkbase.splunk.com/). Installing the app and pre-requisites should take less than 15 minutes.
+
+It's assumed that you already have Splunk installed somewhere, or you're using Splunk Cloud. This document does not cover installing and configuring Splunk for the first time. If you need to do this before proceeding further, please view the following resources:
+
+* [Installing Splunk on Linux documentation](https://docs.splunk.com/Documentation/Splunk/latest/Installation/InstallonLinux). There's also a video [here](https://www.splunk.com/en_us/training/videos/installing-splunk-enterprise-on-linux.html).
+
+* [Installing Splunk on Windows documentation](https://docs.splunk.com/Documentation/Splunk/latest/Installation/InstallonWindows). There's also a video [here](https://www.splunk.com/en_us/resources/videos/installing-splunk-on-windows.html).
+
+* [Start Splunk Enterprise for the first time](https://docs.splunk.com/Documentation/Splunk/latest/Installation/StartSplunkforthefirsttime)
+
+* [Installing the Splunk Enterprise License](https://docs.splunk.com/Documentation/Splunk/latest/Installation/Installalicense)
+
+* [A short introductory video to using the Splunk web interface](https://www.splunk.com/en_us/resources/videos/splunk-web-demo.html)
+
+###Installation Steps
+
+The method for installing the InfoSec app will vary slightly between Splunk Enterprise and Splunk Cloud. If there is a difference within the steps. Each will be explained.
+
+1. Log into your Splunk environment with an account that has administrative privileges.
+
+	If you are a Splunk Cloud customer and are new to using Splunk Cloud. Splunk will have supplied you with two instances:
+	
+    * `https://<stackname>.splunkcloud.com` - This instance is your primary splunk environment and is where you should install the InfoSec app. Log into this instance to perform the installation.
+        
+    * `https://idm-<stackname>.splunkcloud.com` - This is an 'Inputs Data Manager (IDM)'. It is a heavy forwarder that Splunk provides to assist with the collection of event data from cloud based services like AWS, Azure, etc. If you're going to bring in Microsoft365, AWS or other cloud service data sources into your Splunk environment, you'll need to install technology Add-ons onto the IDM through a support request. The InfoSec app should not be installed onto the IDM.	
+
+2. From within the Splunk web interface, select the App menu within the black menu bar at the top left of the user interface (just to the right of the Splunk logo). 
+
+   <img src="./Images/AppMenu.png" width=50% height=50%>
+
+3. Select Find More Apps
+
+   <img src="./Images/FindMoreApps.png" width=50% height=50%>
+  
+
+4. Within the search menu on the top-left of the page, search for `infosec app for splunk`. The InfoSec App for Splunk should be listed as one of the available apps for installation.
+
+   <img src="./Images/Search&Install.png" width=100% height=100%>
+   
+   **Splunk Cloud**
+
+   Within Splunk Cloud, the InfoSec app cannot be self-installed and requires a support request to be raised through Splunk's [Support Portal](https://splunkcommunities.force.com). Request that the app is instaled on the Search Head. 
+   
+   One of the supporting apps (The Common Information Model CIM app) also needs to be installed through a support request. Log the installation of this app within the same request.
+
+   **Splunk Enterprise**
+   
+   5. Press the green `Install` button for the InfoSec App for Splunk. The process will be slightly different between Splunk Cloud and Splunk Enterprise.
+
+   Within the presented dialog box, login with your splunk.com credentials to install the app. The required credentials are what you would use to login to the support portal on the splunk.com website or Splunkbase and is not your Splunk Enterprise instance account login (e.g. administrator, or whatever you have created or been assigned). If you have not yet setup a splunk.com account, you can do so [here](https://www.splunk.com/page/sign_up).
+   
+   You will also need to accept the Terms and Conditions by checking the box before being able to proceed.
+      
+   <img src="./Images/Login&Install.png" width=50% height=50%>
+   
+   Note: The ability to install Apps and Add-ons directly into your Splunk environment requires internet connectivity. Your Splunk environment must be able to access https://splunkbase.splunk.com over port TCP/443. If searching for additional apps like the InfoSec app is not producing any results, you may have a problem with Internet connectivity. If the only method of gaining access is through a proxy server, then this must be configured. Instructions on how to configure Splunk to use your HTTP Proxy Server can be found [here](https://docs.splunk.com/Documentation/Splunk/latest/Admin/ConfigureSplunkforproxy).
+    
+   If configuring Internet access for your Splunk environment is not possible, you can still install apps manually via a two-step process. You will first need to download the apps from [Splunkbase](https://splunkbase.splunk.com) to your desktop. Next, you will need to install the apps into your Splunk environment via "[Install app from file](https://community.splunk.com/t5/Archive/How-to-install-a-splunk-app/m-p/87912)". This app instalation method is not applicable for Splunk Cloud.
+
+   If you have a larger distributed Splunk Enterprise environment, you only need to install the InfoSec app on the search head. It does not need to be installed on the indexers. If your Splunk environment also includes search head clusters, you'll need to use the `Deployer` to push the app out to all the cluster peers. See the documentation [here](https://docs.splunk.com/Documentation/Splunk/latest/DistSearch/PropagateSHCconfigurationchanges). 
+   
+The InfoSec app for Splunk should now be installed. To confirm this, select the InfoSec app from the App menu (see step 2, above). You should be presented with the `Security Posture` dashboard. At this point, you can ignore any errors you might see on the InfoSec dahsboard as there are still a couple of steps needed to complete the installation and configuration.
+
+
+###Additional Apps and Add-ons
+
+A number of supporting Splunk Apps and Add-ons from Splunkbase must also be installed before you can start using the InfoSec app. These are:
+
+* [Splunk Common Information Model (CIM)](https://splunkbase.splunk.com/app/1621/)
+* [Punchcard visualisation](https://splunkbase.splunk.com/app/3129/)
+* [Force Directed visualisation](https://splunkbase.splunk.com/app/3767/)
+* [Lookup File Editor](https://splunkbase.splunk.com/app/1724/) (new requirement starting from InfoSec v1.5)
+* [Sankey Diagram visualisation](https://splunkbase.splunk.com/app/3112/) (new optional prerequisite for the experimental VPN Access dashboard starting from v1.5.3)
+
+Although not essential, the following three Apps and Add-ons should also be installed.
+
+* [Splunk Security Essentials](https://splunkbase.splunk.com/app/3593/)
+
+  The Splunk Security Essentials App includes hundreds of additional security searches that can be integrated into the InfoSec App. The Splunk Security Essentials App also includes comprehensive guided data onboarding examples that can help identify the right data sources to enable the security controls and assisting with the configuration of the underlying data source.
+  
+* [Alert Manager Add-on](https://splunkbase.splunk.com/app/3365/)
+* [Alert Manager App](https://splunkbase.splunk.com/app/2665/)
+
+  The third-party Alert Manager app and add-on provides an incident management capability with simple workflows to support the management of triggered alerts from within the InfoSec app. Installation and configuration instructions are available [here](http://docs.alertmanager.info/).
+
+   
+####Splunk Cloud
+
+With the exception of the Splunk Common Information Model app, all these additional apps can be self-installed within Splunk Cloud. Search for these apps in the same way that you searched for the InfoSec app, following the instructions above. Select the green `Install` button for each app.
+
+####Splunk Enterprise
+   
+The process to install these additional Apps and Add-ons is the same as you've just completed when installing the InfoSec app. Repeat the above steps to install each of these additional Apps and Add-ons.
+
+Once you've reached this step, you are ready to start configuring the InfoSec App for Splunk.
+
+
+## Data Sources   
+
+For the InfoSec app to function correctly, at a minimum, you should have data from the following security sources collected by your Splunk environment:
+
+* Firewall, IDS/IPS data (e.g. Cisco, Palo Alto Networks, Check Point, Fortinet, Juniper)
+
+* Authentication data (e.g. Active Directory data from the Windows logs on Domain Controllers or Microsoft365) With Microsoft Active Directory, the correct audit policy will need to be set to ensure the logging of the right event data.
+
+* Malware/antivirus tools data (e.g. Symantec, McAfee, Sophos, Trend Micro)
+
+All data used by InfoSec app must be Common Information Model (CIM)-compliant. The easiest way to accomplish that is to use CIM-compliant Splunk Add-ons for your security devices.
+
+###Onboarding Data Sources
+
+Correctly onboarding data into Splunk can be daunting at first. Trying to cover every combination of data source for the InfoSec app is beyond the scope of this documentation.
+
+If you installed the Splunk Security Essentials app when following the [Installation steps](#installation), you'll have access to detailed guided onboarding instructions for many security data sources. As an example, to obtain the instructions to onboard Windows Authentication events, f
+
+1. Open the `Splunk Security Essentials` app
+
+  ![](./Images/SecurityEssentials.png)
+
+2. Navigate to the Data `Source Onboarding Guides`
+
+  ![Onboarding Guide](./Images/DataSourceOnboardingGuide.png)
+  
+3. Select Authentication
+
+  ![Windows Authentication](./Images/AuthenticationDataSource.png)
+  
+4. Select Windows Security Logs
+
+  ![Windows Security Logs](./Images/WindowsSecurityLogs.png)
+  
+5. Follow the presented guided procedure
+
+  ![](./Images/WindowsOnboarding.png)
+
 
 ##Configuration
 
@@ -402,7 +481,7 @@ There are three metrics on this dashboard that need to be verified:
 
 You will need to confirm the data sources for each of the InfoSec data models listed on the Health dashboard. In the example above, the authentication data model is receiving no event data. We'll walk through the steps to validate the configuration of the `Authentication` data model. The same process can be applied to all the data models.
 
-It would pay to validate the data sources for each of the data models, even if the Health app is reporting that data is being fed into the data model. Within your environment, you may find that only some of the data you were expecting within the data model is being fed into it and you may need to adjust the configuration.
+It would pay to validate the data sources for each of the data models, even if the Health dashboard is reporting that data is being fed into the data model. Within your environment, you may find that only some of the data you were expecting within the data model is being fed into it and you may want, or need, to adjust the configuration to ensure full coverage of your environment.
 
 Repeat this process for each data model.
 
@@ -426,11 +505,11 @@ Repeat this process for each data model.
 	
 	The next part of the search (`tag=authentication`) is constraining the search to only return events that have been tagged as authentication events.
 	
-	The last part of the search (`NOT (action=success user=*$)`) is excluding any event containing a field labelled `action` with a value of `success` AND a field `user` that has a value that ends with the `$` character.
+	The last part of the search (`NOT (action=success user=*$)`) is excluding any event containing a field labelled `action` with a value of `success` AND a field `user` that has a value that ends with the `$` character. We can ignore this last part of the search for the moment as it is reducing (NOT) the returned results
 	
-	We're going to find out which data sources we have in Splunk that might fit this search.
+	We want to find out which data sources we have in Splunk that might fit this search.
 	
-4. Open a new Splunk search window in another tab of your browser. The quickest way to do this is to select `Search & Reporting` from the `App` menu at the top of the Splunk web interface.
+4. Open a new Splunk search window in another tab of your browser. The quickest way to do this is to right-click on `Search & Reporting` from the `App` menu at the top of the Splunk web interface and select `Open Link in New Tab`.
 
 	![Authentication Open New Search](./Images/AuthenticationOpenNewSearch.png)
 
@@ -442,6 +521,8 @@ Repeat this process for each data model.
 	 
 	 ![Authentication Search 1](./Images/AuthenticationSearch1.png)
 	 
+	 We're now going to investigate why no results were returned and identify what we need to do to adjust the configuration.
+	 
 5. The next step is to modify the search to include ALL indexes within your Splunk environment. Replace the macro component of the search with `index=*` and include a statistical count by index and source type at the end of the search by adding `|stats count by index, sourcetype`. In this example, the search will now look like this:
 
 	 ``index=* tag=authentication NOT (action=success user=*$) | stats count by index, sourcetype``
@@ -452,11 +533,13 @@ Repeat this process for each data model.
 	 
 	 In this example, we can see a number of source types returned across two indexes named `demo_oracle` and `demo_wineventlog`. This indicates that we do have correctly tagged events in two indexes within our Splunk environment, but our original search macro, defined as `cim_Authentication_indexes` was not including these indexes within its definition.
 	 
-	 When you perform this search in your environment you will see different results than this example. If no results were returned, then the data in your environment may not be tagged correctly or may not be CIM compliant. You may need to investigate why by searching the event data.
+	 When you perform this search in your environment you will see different results than this example. If no results were returned, then the data in your environment may not be tagged correctly or may not be CIM compliant. You may need to investigate why by searching the event data. In this example, troubleshooting further would require investigating why `tag=authentication` is not matching any events. This will involve examining the data sources that you believe should contain authentication events.
 	 
-	 Watch this Splunk Education [video](https://www.youtube.com/watch?v=QTklD7OiN74) on the Splunk Common Information Model. If this doesn't help, try requesting [help](#support) from the Splunk Community
+	 Watch this Splunk Education [video](https://www.youtube.com/watch?v=QTklD7OiN74) on the Splunk Common Information Model. If this doesn't help guide you towards solving the problem, try requesting [help](#support) from the Splunk Community.
 	 
-6. Take note of the name of the indexes returned by the above search as the next step we will perform will be to update the macro. In our example, we have two indexes `demo_oracle` and `demo_wineventlog`.
+	 If your search results returned indexes and data sources, we can proceed with modifying the search macro for this data model.
+	 
+6. Take note of the name of the indexes returned by the above search as the next step we perform will be to update the macro. In our example, we have two indexes `demo_oracle` and `demo_wineventlog`.
 
 7. Open the `Advanced Search` under the `Settings` menu.
 
@@ -482,7 +565,7 @@ Repeat this process for each data model.
 	
 	Change the `Indexes whitelist` to include the indexes identified in step 6, above.
 	
-11. Save the the change by selecting the Green `Save` button.
+11. Save the change by selecting the Green `Save` button.
 
 12. Verify that the change is successful by re-running the original data model search. In this example, the search was:
 
@@ -503,7 +586,9 @@ Repeat this process for all the InfoSec data models:
 
 ###Accelerate data Models
 
-Each of the InfoSec data models will need to be accelerated. Only accelerate the data models after you have confirmed that they are being correctly fed with the right event data as once accelerated, the data models cannot be edited without first disabling the acceleration. Perform the following procedure on all the InfoSec data models that are being fed data. There is no value in accelerating a data model that contains no event data.
+Each of the InfoSec data models will need to be accelerated. Only accelerate the data models after you have confirmed that they are being correctly fed with the right event data as once accelerated, the data models cannot be edited without first disabling the acceleration. Perform the following procedure on all the InfoSec data models that are being fed data.
+
+There is no value in accelerating a data model that contains no event data.
 
 In this example, we'll accelerate the `Authentication` data model.
 
@@ -521,18 +606,11 @@ In this example, we'll accelerate the `Authentication` data model.
 	
 	![Settings -> data models -> Authentication](./Images/DataModelAccelerationSave.png)
 
-Splunk will start building the data model accelerations. You can track the status of the accelerations from within the `Health` dashboard of the InfoSec app.
+Splunk will start building the data model accelerations. You can track the progress of the accelerations from within the `Health` dashboard of the InfoSec app.
 
 The InfoSec app should now be configured to work with your data sources.
 
-As a final step, view each of the InfoSec dashboards starting with `Security Posture` from the InfoSec app menu and confirm all dashboards are being populated with data. If you come across a dashboard that is not being populated, please see the [Troubleshooting](#troubleshooting) section to identify if this can be resolved.
-
-
-
-
-	
-	 
-	
+As a final step, view each of the InfoSec dashboards starting with `Security Posture` from the InfoSec app menu and confirm all dashboards are being populated with data. If you come across a dashboard that is not being populated, please see the [Troubleshooting](#troubleshooting) section to identify if this can be resolved. It may just be that you do not have the required data source within Splunk to feed the dashboard. 
 
 
 ##Using the InfoSec app
@@ -562,15 +640,19 @@ These two dashboards provide a swim-lane style view of the type and count of eve
 
 	![Windows Access and Changes](./Images/WindowsAccessAndChanges.png)
 	
-	The Windows Access and Changes dashboard focuses on events within your Microsoft Windows environment. It presents information relating to:
+	The `Windows Access and Changes` dashboard focuses on events within your Microsoft Windows environment. It presents information relating to:
 	
  - Locked Out Accounts
       - Privilege Escalations
-      - Change and 
+      - Change metrics
+      - Authentication metrics
+   The second half of the dashboards provides interactive filtering of both user and host
      
    * All Authentications
 
 	![All Authentications](./Images/AllAuthentications.png)
+	
+	the `All Autentications` dashboard
 
 	[Description here]
 	
@@ -704,7 +786,7 @@ These two dashboards provide a swim-lane style view of the type and count of eve
 
 	> This could be caused by a number of things.
 	>
-	> Check that the search that drives the dashboard is finding data within your Splunk environment. You can find this out by clicking on the `magnifying glass` in the bottom right of the dashboard and examining the associated search string. The first line will identify the data model that the dashboard is based on. Revisit the configuration steps to ensure the right data is feeding the data model. 
+	> Check that the search that drives the dashboard is finding data within your Splunk environment. You can find this out by clicking on the `magnifying glass` in the bottom right of the dashboard and examining the associated search string. The first line will identify the data model that the dashboard is based on. Revisit the configuration steps to ensure the right data is feeding the identified data model. 
 	> 
 	> Try simplifying the search to determine what part of the search is preventing data from being displayed. Try removing all but the first line of the search and see if data is returned. Try re-adding additional lines from the original search, one-by-one to identify what, if anything, in the search is excluding data from being returned. You might find there is something in your data that is not fully CIM compliant. You may need to revisit the configuration.
 	> 
@@ -714,7 +796,7 @@ These two dashboards provide a swim-lane style view of the type and count of eve
 
 	> This normally indicates that one of the supporting add-ons is not installed, or it has been disabled.
 	>
-	> Go to the `Manage Apps` menu and confirm that the identified missing visual has been installed. If it has been installed, also check. that it has not been disabled and that the permissions for the app are set correctly.
+	> Go to the `Manage Apps` menu and confirm that the identified missing visual has been installed. If it has been installed, also check that it has not been disabled and that the permissions for the app are set correctly (e.g. not private).
 	
 3. Some of the dashboards are displaying `Data model was not found`.
 
@@ -724,14 +806,11 @@ These two dashboards provide a swim-lane style view of the type and count of eve
 
     > This may indicate that the InfoSec app has been disabled. Go to the `Manage Apps` menu and check the settings for the InfoSec app. Select the `Edit Properties` menu and enable the app if it has been disabled.
 
-
-
-
 ##Support
 
 * The InfoSec App for Splunk is built by [Splunk Works](https://splunkbase.splunk.com/apps/#/author/splunklabs) and is developer supported. More information on support can be found on [Splunkbase](https://splunkbase.splunk.com/app/4240/#/details).
 
-If you have issues and require some assistance post a question to [Splunk Answers](https://community.splunk.com) using the tag "[InfoSec App for Splunk](https://community.splunk.com/t5/tag/InfoSec%20App%20for%20Splunk/tg-p)" before contacting the developer.
+If you have issues and require some assistance post a question to [Splunk Answers](https://community.splunk.com) using the tag "[InfoSec App for Splunk](https://community.splunk.com/t5/tag/InfoSec%20App%20for%20Splunk/tg-p)" before directly contacting the developer.
 
 Get involved, try it out, ask questions, and make
 new friends!
