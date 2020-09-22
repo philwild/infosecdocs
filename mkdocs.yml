@@ -2,54 +2,12 @@ site_name: InfoSec App for Splunk Documentation
 
 nav:
   - Home: "README.md"
-  - Getting Started:
-      - "Introduction": "1 - Introduction.md"
-      - "Podman + systemd": "gettingstarted/podman-systemd-general.md"
-      - "Docker CE + systemd": "gettingstarted/docker-systemd-general.md"
-      - "Docker CE + Swarm": "gettingstarted/docker-swarm-general.md"
-      - "Docker CE + Swarm RHEL 7.7": "gettingstarted/docker-swarm-rhel7.md"
-      - "MicroK8s + Linux": "gettingstarted/k8s-microk8s.md"
-      - "Bring your own Envionment": "gettingstarted/byoe-rhel8.md"
-      - "Quickstart Guide": "gettingstarted/quickstart_guide.md"
-  - Configuration: "configuration.md"
-  - Architectural Considerations: "architecture.md"
-  - Development: "developing/index.md"
-  - Sources:
-      - About: sources/index.md
-      - Brocade: sources/Brocade/index.md
-      - Checkpoint: sources/Checkpoint/index.md
-      - Cisco: sources/Cisco/index.md
-      - Citrix: sources/Citrix/index.md
-      - "Common Event Format": sources/CommonEventFormat/index.md
-      - CyberArk: sources/CyberArk/index.md
-      - "Dell RSA": sources/Dell_RSA/index.md
-      - F5: sources/F5/index.md
-      - Forcepoint: sources/Forcepoint/index.md
-      - Fortinet: sources/Fortinet/index.md
-      - Imperva: sources/Imperva/index.md
-      - InfoBlox: sources/InfoBlox/index.md
-      - Juniper: sources/Juniper/index.md
-      - Loggen: sources/Loggen/index.md
-      - McAfee: sources/McAfee/index.md
-      - Microfocus: sources/Microfocus/index.md
-      - Nix: sources/nix/index.md
-      - "Palo Alto Networks": sources/PaloaltoNetworks/index.md
-      - "pfSense": sources/Pfsense/index.md
-      - Proofpoint: sources/Proofpoint/index.md
-      - Schneider: sources/Schneider/index.md
-      - Splunk: sources/Splunk/index.md
-      - Symantec: sources/Symantec/index.md
-      - Trend: sources/Trend/index.md
-      - Ubiquiti: sources/Ubiquiti/index.md
-      - Vectra: sources/Vectra/index.md
-      - VMware: sources/VMWare/index.md
-      - Zscaler: sources/Zscaler/index.md
-  - Performance: "performance.md"
-  - Troubleshooting:
-      - SC4S Startup and Validation: "troubleshooting/troubleshoot_SC4S_server.md"
-      - SC4S Logging and Troubleshooting Resources: "troubleshooting/troubleshoot_resources.md"
-  - "Upgrading SC4S": "upgrade.md"
-  - "SC4S FAQ": "faq.md"
+  - "Introduction": "docs/1 - Introduction.md"
+  - "Concepts": "docs/2 - Concepts.md"
+  - "Installation": "docs/3 - Installation.md"
+  - "Configuration": "docs/4 - Configuration.md"
+  - "Using the InfoSec App for Splunk": "docs/5 - UsingInfoSec.md"
+  - "Support and Troubleshooting": "docs/6 - Support.md"
 
 markdown_extensions:
   - toc:
