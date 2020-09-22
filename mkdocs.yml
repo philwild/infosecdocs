@@ -2,8 +2,8 @@ site_name: InfoSec App for Splunk Documentation
 
 nav:
   - Home: "README.md"
-  - "Introduction": "docs/1 - Introduction.md"
-  - "Concepts": "docs/2 - Concepts.md"
+  - "Introduction": "docs/Introduction.md"
+  - "Concepts": "docs/Concepts.md"
   - "Installation": "docs/3 - Installation.md"
   - "Configuration": "docs/4 - Configuration.md"
   - "Using the InfoSec App for Splunk": "docs/5 - UsingInfoSec.md"
