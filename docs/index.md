@@ -27,7 +27,7 @@ The InfoSec app for Splunk aims to achieve the following:
 
 This documentation is not designed to replace formal training or Splunk's own documentation. It focusses on the introductory steps and knowledge required to get the InfoSec app up and running in a short amount of time. It assumes the user is fairly new to Splunk and may not have yet grasped many of Splunk's fundamental concepts. Consider this documentation as a fast-start guide to getting the InfoSec app up and running within your environment. This documentation will introduce you to key Splunk concepts, lightly touching on each. Links will be provided to Splunk's documentation so you can delve further into Splunk's capabilities, as required. Although this document focuses on the InfoSec App for Splunk, the topics covered may be applied to other apps and configurations within Splunk.
 
-##Topics
+##Topics Covered
 
 1. [Introduction](1 - Introduction.md)
 2. [Concepts](2 - Concepts.md)

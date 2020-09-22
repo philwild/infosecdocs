@@ -1,8 +1,8 @@
 ## Installation
 
-###Installation Prerequisites
-
 The InfoSec app for Splunk can be installed directly into Splunk in the same way as other available apps from [Splunkbase](https://splunkbase.splunk.com/). Installing the app and pre-requisites should take less than 15 minutes.
+
+###Installation Prerequisites
 
 It's assumed that you already have Splunk installed somewhere, or you're using Splunk Cloud. This document does not cover installing and configuring Splunk for the first time. If you need to do this before proceeding further, please view the following resources:
 

@@ -38,7 +38,11 @@ You will need to confirm the data sources for each of the InfoSec data models li
 
 It would pay to validate the data sources for each of the data models, even if the Health dashboard is reporting that data is being fed into the data model. Within your environment, you may find that only some of the data you were expecting within the data model is being fed into it and you may want, or need, to adjust the configuration to ensure full coverage of your environment.
 
-Repeat this process for each data model.
+You may also find that your data sources feed more than just one data model.
+
+![Data Sources](./Images/DataSourceSlide.png)
+
+For each of the InfoSec required data models, repeat the following process.
 
 1. Select `Data models` from the `Settings` menu.
 
@@ -155,6 +159,8 @@ In order to aid with configuration, the default constraining search and search m
 
 
 ###Accelerate data Models
+
+Once you've confirmed that you're getting the right data into the data models, it's time to accelerate them.
 
 Each of the InfoSec data models will need to be accelerated. Only accelerate the data models after you have confirmed that they are being correctly fed with the right event data as once accelerated, the data models cannot be edited without first disabling the acceleration. Perform the following procedure on all the InfoSec data models that are being fed data.
 

@@ -36,8 +36,6 @@ These are some of the more common issues that get raised when first installing a
 
 ##Contributing
 
-
-
 We welcome feedback and contributions from the community! Please see our
 [contribution guidelines](CONTRIBUTING.md) for more information on how
 to get involved.

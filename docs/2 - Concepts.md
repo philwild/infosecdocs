@@ -8,6 +8,8 @@ A high-level overview of some of some of this terminology is provided below to a
 
 ###Forwarder
 
+You will most likely use a forwarder to collect and index data within Splunk to feed the InfoSec app. Understanding how a forwarder collects and forwards data is important in ensuring the data is correctly typed within your Splunk environment.
+
 A Forwarder is Splunk's data collection worker bee. It provides reliable, secure data collection from remote sources and forwards that data into your Splunk environment for indexing and consolidation. The forwarder can scale to tens of thousands of remote systems, collecting terabytes of data, if required. Splunk's Universal Forwarder is available for installation on diverse computing platforms and architectures. There are two forms of forwarder for the Splunk platform.
 
 * Universal forwarder (UF) - A lightweight, dedicated, streamlined forwarder designed to efficiently send data to your Splunk environment. The Universal forwarder does not have a user interface and is typically managed by a [Deployment Server](##deployment-server).
@@ -20,18 +22,17 @@ In most cases, data collection should be performed by the universal forwarder.
 
 See [About forwarding and receiving](http://docs.splunk.com/Documentation/Forwarder/latest/Forwarder/Aboutforwardingandreceiving) in Splunk's documentation for further information.
 
-You will most likely use a forwarder to collect and index data within Splunk to feed the InfoSec app. Understanding how a forwarder collects and forwards data is important in ensuring the data is correctly typed within your Splunk environment.
-
-
 ###Inputs Data Manager (IDM)
 
-The Splunk Inputs Data Manager (IDM) is a Splunk managed Heavy Forwarder that is bundled with your Splunk Cloud subscription. It is provided to you to assist with onboard cloud-native data sources like AWS, Azure, GCP, Salesforce, and others. Using the IDM removes the need to pass these cloud-native API based data sources though a self-provisioned forwarder either on-premises or within a cloud tenancy. The IDM does not support all the inputs that a traditional Heavy Forwarder can. It will not support UDP or TCP inputs such as syslog. Installing Add-ons onto the IDM requires the creation of a support request.
+The Inputs Data manager is a Splunk Cloud only solution. If you have an on-premises Splunk environment you will not have an IDM. The IDM is a Splunk managed Heavy Forwarder that is bundled with your Splunk Cloud subscription. It is provided to you to assist with onboard cloud-native data sources like AWS, Azure, GCP, Salesforce, and others. Using the IDM removes the need to pass these cloud-native API based data sources though a self-provisioned forwarder either on-premises or within a cloud tenancy. The IDM does not support all the inputs that a traditional Heavy Forwarder can. It will not support UDP or TCP inputs such as syslog. Installing Add-ons onto the IDM requires the creation of a support request.
 
 For further information, please see [here](https://docs.splunk.com/Splexicon:IDM).
 
 If you have plans to bring data sources such as Microsoft 365 into Splunk Cloud and the InfoSec app, you will want to use your IDM to collect this data.
 
 ###Deployment server
+
+Spending some time understanding how to configure and manage a deployment server will simplify the management of your forwarders and simplify the process of onboarding data for use within the InfoSec and other Splunk apps.
 
 The Splunk Deployment Server is used to manage a fleet of forwarders within your environment. The deployment server acts as a centralised configuration manager, grouping and collectively managing any number of Splunk forwarder instances. Remotely managed forwarders under the control of the deployment server are called deployment clients. These clients poll the deployment server for new configurations and apps (deployment apps), downloading and enabling them as they become available.
 
@@ -40,8 +41,6 @@ Any full installation of Splunk can function as a deployment server although for
 If you are using Splunk Cloud, you will still an on-premises deployment server to manage your forwarder fleet.
 
 Further information can be found [here](https://docs.splunk.com/Splexicon:Deploymentserver).
-
-Spending some time understanding how to configure and manage a deployment server will simplify the management of your deployers and simplify the process of onboarding data for use within the InfoSec and other Splunk apps.
 
 If you are only ever going to onboard a small number of data sources (e.g. just Microsoft 365) then a deployment server might not be warranted.
 
@@ -65,19 +64,21 @@ An App is a collection Splunk configurations designed to address a use-case with
 
 When browsing Splunkbase, you may notice that there are two types of apps and that the app contents can include Inputs, Alert Actions and Visualisations.
 
-   <img src="./Images/Apps&Addons.png" width=50% height=50%>
+   <img src="./Images/AppsAndAddons.png" width=50% height=50%>
 
-All these are considered to be Splunk apps. An Add-on is just an app designed to provide additional capabilities to the Splunk platform, such as getting data in, or providing saved searches or macros. A Splunk app is a packaged-up directory of Splunk configuration files and any required supporting objects. The configurations might include dashboards and alerts, they may include javascript or something else that enables an additional visualisation type within Splunk, or code that enables communications with an external alerting framework or third-party application. Regardless of the content of the app, installation and configuration of the app in Splunk is usually handled in the same way.
+All these are considered to be Splunk apps. An Add-on is also just an app, designed to provide additional capabilities to the Splunk platform, such as getting data in, or providing saved searches or macros. A Splunk app is a packaged-up directory of Splunk configuration files and any required supporting objects. The configurations might include dashboards and alerts, they may include javascript or something else that enables an additional visualisation type within Splunk, or code that enables communications with an external alerting framework or third-party application. Regardless of the content of the app, installation and configuration of the app in Splunk is usually handled in the same way.
+
+The installation instructions for the InfoSec app requires that you install a number of supporting apps. You'll also need to install some Add-ons when onboarding your data.
 
 ####Installing Apps and Add-ons
 
-Not all Apps and Add-ons are supported by Splunk. Most have been created by Splunk's partners and customers and the level of documentation and support will often vary. All apps and Add-ons will have some level of community support through [Splunk Answers](https://answers.splunk.com). The App or Add-on overview page on Splunkbase will show if the app is CIM compliant.
+Not all Apps and Add-ons are supported by Splunk. Most have been created by Splunk's partners and customers and the level of documentation and support will often vary. All apps and Add-ons will have some level of community support through [Splunk Answers](https://answers.splunk.com). The App or Add-on overview page on Splunkbase will show if the app is CIM compliant or supported within Splunk Cloud.
 
  <img src="./Images/CIMCompliant.png" width=30% height=30%>
  
  The overview page will also indicate where to go to get help and where to find support, if available.
-
-**Splunk supported Add-ons**
+ 
+####Splunk supported Add-ons
 
 Apps and Add-ons built by Splunk are usually Splunk supported. Documentation for Splunk supported Apps and Add-ons is usually contained within Splunk's documentation website. See the [documentation](https://docs.splunk.com/Documentation/AddOns) for the Splunk supported apps and add-ons.
 
@@ -86,7 +87,7 @@ Apps and Add-ons built by Splunk are usually Splunk supported. Documentation for
 
 A knowledge object is a user-defined entity that enriches the existing event data within Splunk. Knowledge objects include saved searches, event types, tags, field extractions, lookups, reports, alerts, data models and workflow actions. The term knowledge object refers to these objects within Splunk's language and documentation. Further information can be found [here](https://docs.splunk.com/Splexicon:Knowledgeobject).
 
-Splunk's documentation will also refer to a knowledge manager, who is someone with administrative, or power user, privileges who can share and manage the permissions of knowledge objects. 
+Splunk's documentation will also refer to a knowledge manager, who is someone with administrative, or power user privileges who can share and manage the permissions of knowledge objects. 
  
 ###Common Information Model (CIM)
 
@@ -217,13 +218,15 @@ Splunk accelerates data models by running regular scheduled searches (every 5 mi
 
 Data models can only be accelerated if they are shared and not private.
 
+The Splunk Common Information Model app installs configurations to support the required data models for the InfoSec app.
+
 Further information can be found in Splunk's [documentation](https://docs.splunk.com/.Splexicon:Datamodel).
 
 ###Configuration Files
 
-All configuration settings within Splunk are stored within configuration files that can be manually edited. Interacting and managing Splunk through the Splunk web interface simplifies the management of the underlying configuration files. If you are using Splunk Cloud, you actually don't have access to the underlying configurations files within Splunk and must perform all management tasks through Splunk web.
+All configuration settings within Splunk are stored within configuration files that can be manually edited. Interacting and managing Splunk through the Splunk web interface simplifies the management of the underlying configuration files. If you are using Splunk Cloud, you will not have access to the underlying configurations files within Splunk and must perform all management tasks through Splunk web.
 
-Whether you are using Splunk Cloud or Splunk Enterprise, there will still be times where you will need to modify a configuration file to perform some task within Splunk. Modifying configuration files is most often associated with [getting data in](https://docs.splunk.com/Documentation/SplunkCloud/8.0.2007/Admin/IntroGDI).
+Whether you are using Splunk Cloud or Splunk Enterprise, there may still be times where you will need to modify a configuration file to perform some task within Splunk. Modifying configuration files is most often associated with [getting data in](https://docs.splunk.com/Documentation/SplunkCloud/8.0.2007/Admin/IntroGDI).
 
 Splunk configuration files are stored within the `etc` directory within the Splunk installation directory. Under Linux, this defaults to `/opt/splunk`. Under Windows, this defaults to `C:\Program Files\Splunk`. Modifying configuration files within the Splunk directory often requires the Splunk service to be restarted so that Splunk adopts the changes that you have made.
 
@@ -237,10 +240,13 @@ Further information can be found [here](https://docs.splunk.com/Splexicon:Config
 
 The Splunk data pipeline describes the route that data takes moving from its original source to its transformation into searchable events that encapsulate valuable knowledge. The data pipeline includes these segments:
 
-* [Input](https://docs.splunk.com/Splexicon:Input)
-* [Parsing](https://docs.splunk.com/Splexicon:Parsing)
-* [Indexing](https://docs.splunk.com/Splexicon:Index)
-* [Search](https://docs.splunk.com/Splexicon:Search)
+* [Input](https://docs.splunk.com/Splexicon:Input) - This is the first segment of the pipeline, where Splunk acquires the raw data stream from its source. Splunk breaks the raw data into 64K blocks and annotates each block with metadata keys.
+
+* [Parsing](https://docs.splunk.com/Splexicon:Parsing) - The second segment of the pipeline, receiving data from the input phase. This segment is where event processing occurs. Splunk analyses the data into logical components. Parsing can occur on the indexer or a heavy forwarder. Some parsing can take place on a universal forwarder (e.g. structured data).
+
+* [Indexing](https://docs.splunk.com/Splexicon:Index) - The third segment of the pipeline, in which the indexer takes the parsed event data and writes it to disk on the indexers.
+
+* [Search](https://docs.splunk.com/Splexicon:Search) - The Search segment manages all aspects of how the user accesses, views and uses the indexed data. The search segment manages the search processes and interactivity with knowledge objects.
 
 ![Splunk Data Pipeline](https://docs.splunk.com/images/5/5e/Datapipeline1_60.png)
 
