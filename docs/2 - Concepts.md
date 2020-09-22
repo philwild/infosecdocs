@@ -1,14 +1,16 @@
 ##Concepts and Definitions
 
-The InfoSec app relies on accelerated data models and the Common Information model (CIM) to provide a consistent and normalised view into the event data that you'll bring into Splunk. Understanding how to configure and use the CIM and data models may require an understanding of indexes, source types, sources, fields, event types, tags, macros and a few other concepts, depending on the data sources that you're feeding into Splunk.
+The InfoSec app relies on accelerated data models and the Common Information model (CIM) to provide a consistent and normalised view into the event data that you'll bring into Splunk. If these two key components are not configured correctly, the InfoSec app will not function.
+
+Understanding how to configure and use the CIM and data models will require an understanding of some other Splunk features. This includes understanding how to best manage getting data into Splunk. You'll need a bit of an understanding of indexes, source types, sources, fields, event types, tags, macros and a few other concepts, depending on the data sources that you're feeding into Splunk.
 
 Splunk provides a [Splexicon](https://docs.splunk.com/Splexicon), which is a glossary of technical terminology that is specific to Splunk software. Definitions within the Splexicon include links to related information in the Splunk documentation. It is a good place to start if you come across a Splunk word or term that you want to understand further.
 
-A high-level overview of some of some of this terminology is provided below to assist with understanding how to configure, manage and troubleshoot the installation and ongoing use of the InfoSec app. If you are familiar with these Splunk concepts, skip to [Configuration](##configuration).
+A high-level overview of some of some of this terminology is provided within this documentation to assist with understanding how to configure, manage and troubleshoot the installation and ongoing use of the InfoSec app. If you are familiar with these Splunk concepts, skip to [Configuration](##configuration).
 
 ###Forwarder
 
-You will most likely use a forwarder to collect and index data within Splunk to feed the InfoSec app. Understanding how a forwarder collects and forwards data is important in ensuring the data is correctly typed within your Splunk environment.
+You will most likely use a forwarder to collect and index data within Splunk to feed the InfoSec app. Understanding how a forwarder collects and forwards data is important in ensuring the data is correctly typed within your Splunk environment. Setting the correct source type ensures that Splunk will properly interpret the event data and extract fields and other important information.
 
 A Forwarder is Splunk's data collection worker bee. It provides reliable, secure data collection from remote sources and forwards that data into your Splunk environment for indexing and consolidation. The forwarder can scale to tens of thousands of remote systems, collecting terabytes of data, if required. Splunk's Universal Forwarder is available for installation on diverse computing platforms and architectures. There are two forms of forwarder for the Splunk platform.
 
@@ -18,13 +20,13 @@ A Forwarder is Splunk's data collection worker bee. It provides reliable, secure
   
 * Heavy Forwarder (HF) - A more capable forwarder platform with the ability to integrate with additional APIs and services. A heavy forwarder is a full Splunk installation, configured to assume the role of just collecting and forwarding data. A heavy forwarder can route data to additional destinations, including non-splunk platforms. It can also parse/filter data within the pipeline and can index data locally, if required.
 
-In most cases, data collection should be performed by the universal forwarder.
+In most cases, data collection should be performed by the universal forwarder rather than a heavy forwarder.
 
 See [About forwarding and receiving](http://docs.splunk.com/Documentation/Forwarder/latest/Forwarder/Aboutforwardingandreceiving) in Splunk's documentation for further information.
 
 ###Inputs Data Manager (IDM)
 
-The Inputs Data manager is a Splunk Cloud only solution. If you have an on-premises Splunk environment you will not have an IDM. The IDM is a Splunk managed Heavy Forwarder that is bundled with your Splunk Cloud subscription. It is provided to you to assist with onboard cloud-native data sources like AWS, Azure, GCP, Salesforce, and others. Using the IDM removes the need to pass these cloud-native API based data sources though a self-provisioned forwarder either on-premises or within a cloud tenancy. The IDM does not support all the inputs that a traditional Heavy Forwarder can. It will not support UDP or TCP inputs such as syslog. Installing Add-ons onto the IDM requires the creation of a support request.
+The Inputs Data manager is a Splunk Cloud only solution. If you have an on-premises Splunk environment you will not have an IDM. The IDM is a Splunk managed Heavy Forwarder that is bundled with your Splunk Cloud service. It is provided to you to assist with onboard cloud-native data sources like AWS, Azure, GCP, Salesforce, and others. Using the IDM removes the need to pass these cloud-native API based data sources though a self-provisioned forwarder either on-premises or within a cloud tenancy. The IDM does not support all the inputs that a traditional Heavy Forwarder can. It will not support UDP or TCP inputs such as syslog. Installing Add-ons onto the IDM requires the creation of a support request.
 
 For further information, please see [here](https://docs.splunk.com/Splexicon:IDM).
 
