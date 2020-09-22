@@ -8,3 +8,19 @@ nav:
   - Configuration: "4 - Configuration.md"
   - Using the InfoSec App for Splunk: "5 - UsingInfoSec.md"
   - Support and Troubleshooting: "6 - Support.md"
+
+markdown_extensions:
+  - toc:
+      permalink: True
+  - smarty
+  - fenced_code
+  - sane_lists
+  - codehilite
+
+theme:
+  name: "material"
+  palette:
+    primary: "black"
+    accent: "orange"
+  favicon: "logo.png"
+  logo: "logo.png"
