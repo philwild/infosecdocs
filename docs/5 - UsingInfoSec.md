@@ -207,7 +207,7 @@ The `Dashboards` page will list all saved dashboards within Splunk. From here, y
 * Edit a dashboard
 * Clone a dashboard
 
-![](./Images/Dashboards.png)
+![Dashboards](./Images/Dashboards.png)
 	
 ####Lookups
 

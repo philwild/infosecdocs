@@ -30,16 +30,16 @@ The method for installing the InfoSec app will vary slightly between Splunk Ente
 
 2. From within the Splunk web interface, select the App menu within the black menu bar at the top left of the user interface (just to the right of the Splunk logo). 
 
+   ![App Menu](./Images/AppMenu.png)
    <img src="./Images/AppMenu.png" width=50% height=50%>
 
 3. Select Find More Apps
 
-   <img src="./Images/FindMoreApps.png" width=50% height=50%>
-  
+   ![Find More Apps](./Images/FindMoreApps.png)  
 
 4. Within the search menu on the top-left of the page, search for `infosec app for splunk`. The InfoSec App for Splunk should be listed as one of the available apps for installation.
 
-   <img src="./Images/Search&Install.png" width=100% height=100%>
+   ![Search & Install](./Images/Search&Install.png)
    
    **Splunk Cloud**
 
@@ -55,7 +55,7 @@ The method for installing the InfoSec app will vary slightly between Splunk Ente
    
    You will also need to accept the Terms and Conditions by checking the box before being able to proceed.
       
-   <img src="./Images/Login&Install.png" width=50% height=50%>
+   ![Login & Install](./Images/Login&Install.png)
    
    Note: The ability to install Apps and Add-ons directly into your Splunk environment requires internet connectivity. Your Splunk environment must be able to access https://splunkbase.splunk.com over port TCP/443. If searching for additional apps like the InfoSec app is not producing any results, you may have a problem with Internet connectivity. If the only method of gaining access is through a proxy server, then this must be configured. Instructions on how to configure Splunk to use your HTTP Proxy Server can be found [here](https://docs.splunk.com/Documentation/Splunk/latest/Admin/ConfigureSplunkforproxy).
     
@@ -119,7 +119,7 @@ If you installed the Splunk Security Essentials app when following the [Installa
 
 1. Open the `Splunk Security Essentials` app
 
-  ![](./Images/SecurityEssentials.png)
+  ![Security Essentials](./Images/SecurityEssentials.png)
 
 2. Navigate to the Data `Source Onboarding Guides`
 
@@ -135,4 +135,4 @@ If you installed the Splunk Security Essentials app when following the [Installa
   
 5. Follow the presented guided procedure
 
-  ![](./Images/WindowsOnboarding.png)
+  ![Windows Onboarding](./Images/WindowsOnboarding.png)
