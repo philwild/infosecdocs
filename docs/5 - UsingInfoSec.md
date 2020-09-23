@@ -20,7 +20,7 @@ The next row includes three dashboards that focus on Intrusion alerts, splitting
 
 Clicking on any of these dashboards will open a new window that focuses on your IDS.
 
-The last row contains two punchcard style dashboards that focus on account and asset information within your organisation. For these dashboards to populate, the punchcard visualisation has to have been installed and enabled within your Splunk instance. If you do not see the punchcard visualisation matching the above screenshot, it may indicate that this visualisation has not been installed or may have been disabled. You may see the message "No matching visualization found for type: punchcard, in app: punchcard_app". Installing this app will be discussed [later](# Supporting apps and add-ons).
+The last row contains two punchcard style dashboards that focus on account and asset information within your organisation. For these dashboards to populate, the punchcard visualisation has to have been installed and enabled within your Splunk instance. If you do not see the punchcard visualisation matching the above screenshot, it may indicate that this visualisation has not been installed or may have been disabled. You may see the message "No matching visualization found for type: punchcard, in app: punchcard_app". Follow the [instructions](3 - Installation.md#Supporting-apps-and-add-ons) to complete the installation of the required Apps and Add-ons.
 
 These two dashboards provide a swim-lane style view of the type and count of events being detected against your identities and assets over the past 24 hours. These two dashboards allow you to quickly identify bursts of activity that may need investigating.
 
@@ -101,7 +101,7 @@ A communications map will display the relationship of the filtered results.
 
 The `VPN` dashboard will present VPN session data from all monitored data sources.
 
-Included within the dashboard is a list of geographically improbably VPN connections.
+Included within the dashboard is a list of geographically improbable VPN connections.
 
 The VPN data can be filtered by user and selecting any of the presented results will pivot to displaying the results in Splunk search.
 	
@@ -138,7 +138,7 @@ The `Network Anomalies` dashboard identifies:
 
 ![Custom Use Cases](./Images/CustomUseCases.png)
 
-The `Custom Use Cases` dashboard starts as a blank canvas for you to incorporate your own searches and dashboards. You can incorporate searches from the [Splunk Security Essentials](https://splunkbase.splunk.com/app/3435/) app into this dashboard. You can follow the example of [adding a custom search](###adding-a-custom-search)
+The `Custom Use Cases` dashboard starts as a blank canvas for you to incorporate your own searches and dashboards. You can incorporate searches from the [Splunk Security Essentials](https://splunkbase.splunk.com/app/3435/) app into this dashboard. You can follow the example of [adding a custom search](5 - UsingInfoSec.md###adding-a-custom-search)
 	
 ###Investigation
 
@@ -196,7 +196,7 @@ The InfoSec app provides a standard Splunk search page from within the App. If y
 
 ![Search](./Images/Search.png)
 
-Please also see [Training](#Training).
+Please also see [Training](1 - Introduction.md#Training).
 	
 ####Dashboards
 
@@ -266,7 +266,7 @@ The first thing we need is a relevant search that we want to add to our Custom U
 
   ![Security Essentials](./Images/SecEssentials3.png)
 
-4. When the search opens, select `Live Data` from the `View` in the top-right corner of the page
+4. When the search opens, select `Live Data` from the `View` in the top-right corner of the page.
 
   ![Security Essentials](./Images/SecEssentials4.png)
 

@@ -2,7 +2,7 @@
 
 After performing the installation steps documented above, start by confirming the Health of the InfoSec app within your environment. 
 
-1. Navigate to the InfoSec app by selecting the `InfoSec` app from the App menu at the top of the Splunk web interface.
+1. Navigate to the InfoSec app by selecting the `InfoSec` app from the App menu at the top of the Splunk Web interface.
 
 	![InfoSec app](./Images/ConfigurationInfoSec.png)
 	
@@ -18,19 +18,19 @@ There are three metrics on this dashboard that need to be verified:
 
 	![Data Model Data](./Images/ConfigurationDataModelsData.png)
 	
-	In the above example, there is no data feeding the CIM_Authentication, or any of the other data models. Don't be concerned if some of the data models in your environment have no data. Within your Splunk environment you may not have a data source to feed some of these data models. Follow the steps in [Validating Data Sources](#validating-data-sources) to confirm your environment is correctly configured for each of these data models.
+	In the above example, there is no data feeding the CIM_Authentication, or any of the other data models. Don't be concerned if some of the data models in your environment have no data. Within your Splunk environment you may not have a data source to feed some of these data models. Follow the steps in [Validating Data Sources](###validating-data-sources) to confirm your environment is correctly configured for each of these data models.
 
 2. The Acceleration Status for each of the required InfoSec data models.
 
 	![Data Model Data](./Images/ConfigurationDataModelAcceleration.png)
 	
-	In the above example, the Health dashboard is reporting that there are no accelerated data models. You should only enable acceleration for the data models that are being fed with data. Follow the steps in [Accelerating Data Models](#accelerate-data-models) to confirm your environment is correctly configured.
+	In the above example, the Health dashboard is reporting that there are no accelerated data models. You should only enable acceleration for the data models that are being fed with data. Follow the steps in [Accelerating Data Models](###accelerate-data-models) to confirm your environment is correctly configured.
 	
 3. The Installation status for each of the required supporting Apps/Add-ons for InfoSec.
 
 	![Installed Add-ons](./Images/ConfigurationInstalledAdd-ons.png)
 	
-	In the above example, the Health dashboard is reporting that all the required Add-ons are installed. If you had correctly followed the Installation Instructions above, your Health dashboard should also be reporting that all Add-ons are installed. If this is not the case, follow the steps in [Additional Apps and Add-on](#additional-apps-and-add-ons) to confirm your environment is correctly configured.
+	In the above example, the Health dashboard is reporting that all the required Add-ons are installed. If you had correctly followed the Installation Instructions above, your Health dashboard should also be reporting that all Add-ons are installed. If this is not the case, follow the steps in [Additional Apps and Add-on](3 - Installation.md###additional-apps-and-add-ons) to confirm your environment is correctly configured.
 
 ###Validating Data Sources
 
@@ -60,7 +60,7 @@ For each of the InfoSec required data models, repeat the following process.
 	
 	``(`cim_Authentication_indexes`) tag=authentication NOT (action=success user=*$)``
 	
-	The first part of the search contains a macro called `cim_Authentication_indexes`. We know it is a macro because it is enclosed within backticks. This macro is most likely constraining the search to certain indexes.
+	The first part of the search contains a macro called `cim_Authentication_indexes`. We know it is a macro because it is enclosed within back-ticks. This macro is most likely constraining the search to certain indexes.
 	
 	The next part of the search (`tag=authentication`) is constraining the search to only return events that have been tagged as authentication events.
 	
@@ -158,7 +158,7 @@ In order to aid with configuration, the default constraining search and search m
 
 
 
-###Accelerate data Models
+###Accelerate Data Models
 
 Once you've confirmed that you're getting the right data into the data models, it's time to accelerate them.
 
@@ -186,4 +186,4 @@ Splunk will start building the data model accelerations. You can track the progr
 
 The InfoSec app should now be configured to work with your data sources.
 
-As a final step, view each of the InfoSec dashboards starting with `Security Posture` from the InfoSec app menu and confirm all dashboards are being populated with data. If you come across a dashboard that is not being populated, please see the [Troubleshooting](#troubleshooting) section to identify if this can be resolved. It may just be that you do not have the required data source within Splunk to feed the dashboard. 
+As a final step, view each of the InfoSec dashboards starting with `Security Posture` from the InfoSec app menu and confirm all dashboards are being populated with data. If you come across a dashboard that is not being populated, please see the [Troubleshooting](6 - Support.md#troubleshooting) section to identify if this can be resolved. It may just be that you do not have the required data source within Splunk to feed the dashboard. 

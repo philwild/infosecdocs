@@ -31,7 +31,6 @@ The method for installing the InfoSec app will vary slightly between Splunk Ente
 2. From within the Splunk web interface, select the App menu within the black menu bar at the top left of the user interface (just to the right of the Splunk logo). 
 
    ![App Menu](./Images/AppMenu.png)
-   <img src="./Images/AppMenu.png" width=50% height=50%>
 
 3. Select Find More Apps
 
@@ -61,7 +60,7 @@ The method for installing the InfoSec app will vary slightly between Splunk Ente
     
    If configuring Internet access for your Splunk environment is not possible, you can still install apps manually via a two-step process. You will first need to download the apps from [Splunkbase](https://splunkbase.splunk.com) to your desktop. Next, you will need to install the apps into your Splunk environment via "[Install app from file](https://community.splunk.com/t5/Archive/How-to-install-a-splunk-app/m-p/87912)". This app installation method is not applicable for Splunk Cloud.
 
-   If you have a larger distributed Splunk Enterprise environment, you only need to install the InfoSec app on the search head. It does not need to be installed on the indexers. If your Splunk environment also includes search head clusters, you'll need to use the `Deployer` to push the app out to all the cluster peers. See the documentation [here](https://docs.splunk.com/Documentation/Splunk/latest/DistSearch/PropagateSHCconfigurationchanges). 
+   If you have a larger distributed Splunk Enterprise environment, you only need to install the InfoSec app on the Search Head. It does not need to be installed on the indexers. If your Splunk environment also includes Search Head clusters, you'll need to use the `Deployer` to push the app out to all the cluster peers. See the documentation [here](https://docs.splunk.com/Documentation/Splunk/latest/DistSearch/PropagateSHCconfigurationchanges). 
    
 The InfoSec app for Splunk should now be installed. To confirm this, select the InfoSec app from the App menu (see step 2, above). You should be presented with the `Security Posture` dashboard. At this point, you can ignore any errors you might see on the InfoSec dashboard as there are still a couple of steps needed to complete the installation and configuration.
 

@@ -6,7 +6,7 @@ Understanding how to configure and use the CIM and data models will require an u
 
 Splunk provides a [Splexicon](https://docs.splunk.com/Splexicon), which is a glossary of technical terminology that is specific to Splunk software. Definitions within the Splexicon include links to related information in the Splunk documentation. It is a good place to start if you come across a Splunk word or term that you want to understand further.
 
-A high-level overview of some of some of this terminology is provided within this documentation to assist with understanding how to configure, manage and troubleshoot the installation and ongoing use of the InfoSec app. If you are familiar with these Splunk concepts, skip to [Configuration](##configuration).
+A high-level overview of some of some of this terminology is provided within this documentation to assist with understanding how to configure, manage and troubleshoot the installation and ongoing use of the InfoSec app. If you are familiar with these Splunk concepts, skip to [Installation](3 - Installation.md).
 
 ###Forwarder
 
@@ -32,7 +32,7 @@ For further information, please see [here](https://docs.splunk.com/Splexicon:IDM
 
 If you have plans to bring data sources such as Microsoft 365 into Splunk Cloud and the InfoSec app, you will want to use your IDM to collect this data.
 
-###Deployment server
+###Deployment Server
 
 Spending some time understanding how to configure and manage a deployment server will simplify the management of your forwarders and simplify the process of onboarding data for use within the InfoSec and other Splunk apps.
 
@@ -42,13 +42,13 @@ Any full installation of Splunk can function as a deployment server although for
 
 If you are using Splunk Cloud, you will still an on-premises deployment server to manage your forwarder fleet.
 
-Further information can be found [here](https://docs.splunk.com/Splexicon:Deploymentserver).
+Further information can be found [here](https://docs.splunk.com/Documentation/Splunk/latest/Updating/Aboutdeploymentserver).
 
 If you are only ever going to onboard a small number of data sources (e.g. just Microsoft 365) then a deployment server might not be warranted.
 
 ### HTTP Event Collector (HEC)
 
-The HTTP event collector is a Splunk service that can run on Splunk indexers or heavy forwarders. The http event collector can efficiently receive data over HTTP (or HTTPS) directly from applications or services.
+The HTTP event collector is a Splunk service that can run on Splunk indexers or heavy forwarders. The HTTP event collector can efficiently receive data over HTTP (or HTTPS) directly from applications or services.
 
 Further information can be found [here](https://dev.splunk.com/enterprise/docs/devtools/httpeventcollector/).
 
@@ -66,9 +66,9 @@ An App is a collection Splunk configurations designed to address a use-case with
 
 When browsing Splunkbase, you may notice that there are two types of apps and that the app contents can include Inputs, Alert Actions and Visualisations.
 
-   <img src="./Images/AppsAndAddons.png" width=50% height=50%>
+   ![Apps and Addons](./Images/AppsAndAddons.png)
 
-All these are considered to be Splunk apps. An Add-on is also just an app, designed to provide additional capabilities to the Splunk platform, such as getting data in, or providing saved searches or macros. A Splunk app is a packaged-up directory of Splunk configuration files and any required supporting objects. The configurations might include dashboards and alerts, they may include javascript or something else that enables an additional visualisation type within Splunk, or code that enables communications with an external alerting framework or third-party application. Regardless of the content of the app, installation and configuration of the app in Splunk is usually handled in the same way.
+All these are considered to be Splunk apps. An Add-on is also just an app, designed to provide additional capabilities to the Splunk platform, such as getting data in, or providing saved searches or macros. A Splunk app is a packaged-up directory of Splunk configuration files and any required supporting objects. The configurations might include dashboards and alerts, they may include Javascript or something else that enables an additional visualisation type within Splunk, or code that enables communications with an external alerting framework or third-party application. Regardless of the content of the app, installation and configuration of the app in Splunk is usually handled in the same way.
 
 The installation instructions for the InfoSec app requires that you install a number of supporting apps. You'll also need to install some Add-ons when onboarding your data.
 
@@ -76,7 +76,7 @@ The installation instructions for the InfoSec app requires that you install a nu
 
 Not all Apps and Add-ons are supported by Splunk. Most have been created by Splunk's partners and customers and the level of documentation and support will often vary. All apps and Add-ons will have some level of community support through [Splunk Answers](https://answers.splunk.com). The App or Add-on overview page on Splunkbase will show if the app is CIM compliant or supported within Splunk Cloud.
 
- <img src="./Images/CIMCompliant.png" width=30% height=30%>
+ ![CIM Compliant](./Images/CIMCompliant.png)
  
  The overview page will also indicate where to go to get help and where to find support, if available.
  
@@ -85,7 +85,7 @@ Not all Apps and Add-ons are supported by Splunk. Most have been created by Splu
 Apps and Add-ons built by Splunk are usually Splunk supported. Documentation for Splunk supported Apps and Add-ons is usually contained within Splunk's documentation website. See the [documentation](https://docs.splunk.com/Documentation/AddOns) for the Splunk supported apps and add-ons.
 
 
-###Knowledge Objects
+###Knowledge Object
 
 A knowledge object is a user-defined entity that enriches the existing event data within Splunk. Knowledge objects include saved searches, event types, tags, field extractions, lookups, reports, alerts, data models and workflow actions. The term knowledge object refers to these objects within Splunk's language and documentation. Further information can be found [here](https://docs.splunk.com/Splexicon:Knowledgeobject).
 
@@ -95,7 +95,7 @@ Splunk's documentation will also refer to a knowledge manager, who is someone wi
 
 The Splunk Common Information Model (CIM) is a shared semantic model focused on extracting value from data. The CIM is implemented as an add-on that contains a collection of data models (we'll get to what that means soon), documentation, and tools that support the consistent, normalised treatment of data for maximum efficiency at search time.
 
-The InfoSec app relies on the CIM to function properly. If you have not yet installed the CIM to support the InfoSec app. Please look at the [Installation Instructions](#Installation).
+The InfoSec app relies on the CIM to function properly. If you have not yet installed the CIM to support the InfoSec app. Please look at the [Installation Instructions](3 - Installation.md).
 
 Splunk Education has published a short video explaining the value and use of the CIM on YouTube [here](https://www.youtube.com/watch?v=QTklD7OiN74) (8:30 mins). The video also covers installation and configuration of the CIM.
 
@@ -117,7 +117,7 @@ When configuring data models in Splunk, in most cases, you would restrict each d
 
 Further information on using, creating and managing indexes in Splunk can be found [here](https://docs.splunk.com/Documentation/Splunk/latest/Indexer/Setupmultipleindexes).
 
-###Source type
+###Source Type
 
 A source type is used to name or identify each different type of data in Splunk. The definition of a source type will define how the timestamp is interpreted, what defines the break between different events and how Splunk might decipher and understand the structure of events. A source type could be considered the fingerprint or DNA of the event data entering Splunk. When configuring Splunk to receive or index data, you will always define a source type, or a source type may be pre-defined within an Add-on that you've chosen to use to help you onboard data into Splunk. As an example, the source types defined within the Splunk Add-on for Windows are listed within Splunk's documentation [here](https://docs.splunk.com/Documentation/WindowsAddOn/latest/User/SourcetypesandCIMdatamodelinfo).
 
@@ -145,7 +145,7 @@ Fields appear in event data as searchable name-value pairings such as `user_name
 
 Splunk will attempt to auto-extract values into fields from within the event data that is being indexed. This is normally performed at search time.
 
-Fields will often be defined within event data as key value pairs such as `user=fred` or `src:192.168.10.5` or may simply be a number or text within the structure of the event with no defined key. Splunk can still identify these fields using a custom [field extraction](https://docs.splunk.com/Splexicon:Fieldextraction) through Splunk web. A field extraction is defined against a source type, a source or a host.
+Fields will often be defined within event data as key value pairs such as `user=fred` or `src:192.168.10.5` or may simply be a number or text within the structure of the event with no defined key. Splunk can still identify these fields using a custom [field extraction](https://docs.splunk.com/Splexicon:Fieldextraction) through Splunk Web. A field extraction is defined against a source type, a source or a host.
 
 Further information on fields in Splunk can be found [here](https://docs.splunk.com/Documentation/Splunk/latest/Knowledge/Aboutfields).
 
@@ -155,11 +155,11 @@ Often, fields defined as key value pairs within event data may not align with th
 
 ###Alias
 
-An alias (or field alias) in Splunk is an alternate name assigned to a field that has been extracted from the event data within a Splunk index. Field aliases for fields can be defined against a source type, a source or a host. They can be defined within Splunk web by going into the Settings -> Fields menu. If you are working with a data source that is not yet CIM compliant, you may need to create field aliases to map existing fields within your data source to the [CIM naming convention](https://docs.splunk.com/Documentation/CIM/latest/User/CIMfields).
+An alias (or field alias) in Splunk is an alternate name assigned to a field that has been extracted from the event data within a Splunk index. Field aliases for fields can be defined against a source type, a source or a host. They can be defined within Splunk Web by going into the Settings -> Fields menu. If you are working with a data source that is not yet CIM compliant, you may need to create field aliases to map existing fields within your data source to the [CIM naming convention](https://docs.splunk.com/Documentation/CIM/latest/User/CIMfields).
 
 See Splunk's [documentation on Fields](https://docs.splunk.com/Documentation/Splunk/latest/Knowledge/Abouttagsandaliases) for further information.
 
-###Event type
+###Event Type
 
 An event type in Splunk is a category of events united by the same search. Event types are useful for categorising a subset of event data from within one source type, or uniting events of a certain type across multiple source types. Event types and tags go hand-in-hand in assisting with preparing data for use in data models.
 
@@ -167,7 +167,7 @@ This is an older Splunk [video](https://www.youtube.com/watch?v=KhdMgT9VbHs) tha
 
 See Splunk's [documentation on event types](https://docs.splunk.com/Documentation/Splunk/latest/Knowledge/Abouteventtypes) for further information.
 
-###Tags
+###Tag
 
 Tags enable you to assign names to specific field and value combinations. This includes event type, host, source and source type field value combinations. Tags tend to work hand-in-hand with event types.
 An example of the use of tags might be to create an `authentication` tag that matches:
@@ -181,17 +181,17 @@ A search within Splunk for `tag = authentication` will return all events that ma
 
 See Splunk's [documentation on tags](https://docs.splunk.com/Documentation/Splunk/latest/Knowledge/Abouttagsandaliases) for further information.
 
-###Permissions, users and roles
+###Permissions, Users and Roles
 
 Permissions within Splunk define who has access to data and knowledge objects. Roles within Splunk are given permission to access data within indexes and access apps and knowledge objects. Splunk users inherit the permissions granted to the roles that have been assigned to the user.
 
-When first created within Splunk web, knowledge objects are private and only accessible to the user that created them. A Splunk knowledge manager can share these objects with other Splunk users by adjusting the permissions of the objects. Knowledge objects can be shared with individual roles, or everyone. Knowledge objects can also be restricted to be available within a single app, or globally.
+When first created within Splunk Web, knowledge objects are private and only accessible to the user that created them. A Splunk knowledge manager can share these objects with other Splunk users by adjusting the permissions of the objects. Knowledge objects can be shared with individual roles, or everyone. Knowledge objects can also be restricted to be available within a single app, or globally.
 
-Permissions for knowledge objects can be managed through the Settings menu within Splunk web. It is important to understand that permissions related to knowledge objects can impact data models. Fields and Tags that are private cannot feed a data model. Private data models cannot be accelerated, etc. Wen troubleshooting, checking the permissions on knowledge objects can often identify the cause of an issue.
+Permissions for knowledge objects can be managed through the Settings menu within Splunk Web. It is important to understand that permissions related to knowledge objects can impact data models. Fields and Tags that are private cannot feed a data model. Private data models cannot be accelerated, etc. Wen troubleshooting, checking the permissions on knowledge objects can often identify the cause of an issue.
 
-Further information can be found in Spunk's [documentation](https://docs.splunk.com/Splexicon:Permissions).
+Further information can be found in Spunk's documentation. The Splunk [Splexicon](https://docs.splunk.com/Splexicon:Permissions) contains links to the relevant pages.
 
-###Macros
+###Macro
 
 Search macros contain snippets of searches for re-use in other Splunk searches. A search macro is referenced in other searches through its name. You enclose the name of a search macro within the back-tick character to reference it in another search. As an example, you could create a search macro named `iis_logs` with the following definition:
 
@@ -210,9 +210,9 @@ data models make use of search macros to define what data should be included wit
 Further information can be found in Splunk's [documentation](https://docs.splunk.com/Splexicon:Searchmacro).
 
 
-###Data models and acceleration
+###Data Models and Acceleration
 
-A data model is a form of knowledge object that applies structure to the event data within Splunk. each data model within Splunk represents a category of event data (e.g. authentication data). Data models are powered by root searches that define what data is represented and available within the data model. The data model overlays a schema onto the event data identified by the base search and presents the data to the user as columns of fields over rows of data. Splunk's pivot and datasets interface can be used to query data models to build visualisations and reports.
+A data model is a form of knowledge object that applies structure to the event data within Splunk. Each data model within Splunk represents a category of event data (e.g. authentication data). Data models are powered by root searches that define what data is represented and available within the data model. The data model overlays a schema onto the event data identified by the base search and presents the data to the user as columns of fields over rows of data. Splunk's pivot and datasets interface can be used to query data models to build visualisations and reports.
 
 The schema that is applied to the event data in the form of a data model can be accelerated in Splunk. This is called an accelerated data model. Accelerated data models power apps such as Enterprise Security and the InfoSec app. A data model that has been accelerated cannot be edited. If you need to edit an accelerated data model, you must disable acceleration.
 
@@ -222,11 +222,11 @@ Data models can only be accelerated if they are shared and not private.
 
 The Splunk Common Information Model app installs configurations to support the required data models for the InfoSec app.
 
-Further information can be found in Splunk's [documentation](https://docs.splunk.com/.Splexicon:Datamodel).
+Further information can be found in Splunk's documentation. Links to the relevant pages are under the `more information` section of the [Splexicon](https://docs.splunk.com/Splexicon:Datamodel).
 
 ###Configuration Files
 
-All configuration settings within Splunk are stored within configuration files that can be manually edited. Interacting and managing Splunk through the Splunk web interface simplifies the management of the underlying configuration files. If you are using Splunk Cloud, you will not have access to the underlying configurations files within Splunk and must perform all management tasks through Splunk web.
+All configuration settings within Splunk are stored within configuration files that can be manually edited. Interacting and managing Splunk through the Splunk Web interface simplifies the management of the underlying configuration files. If you are using Splunk Cloud, you will not have access to the underlying configurations files within Splunk and must perform all management tasks through Splunk Web.
 
 Whether you are using Splunk Cloud or Splunk Enterprise, there may still be times where you will need to modify a configuration file to perform some task within Splunk. Modifying configuration files is most often associated with [getting data in](https://docs.splunk.com/Documentation/SplunkCloud/8.0.2007/Admin/IntroGDI).
 
@@ -236,9 +236,9 @@ Splunk configuration files are disbursed within the `etc` directory structure. C
 
 Splunk applies an [order of precedence](https://docs.splunk.com/Documentation/Splunk/latest/Admin/Wheretofindtheconfigurationfiles) to configuration files to allow `default` configurations to be overridden by `local` configurations. It is Splunk best-practice to never modify a `default` configuration. A Splunk administrator should always copy the settings into a `local` copy of the configuration file.
 
-Further information can be found [here](https://docs.splunk.com/Splexicon:Configurationfile#:~:text=A%20file%20(also%20referred%20to,SPLUNK_HOME%2Fetc%2Fsystem%2Fdefault).
+Further information can be found [here](https://docs.splunk.com/Splexicon:Configurationfile).
 
-###The data pipeline
+###The Data Pipeline
 
 The Splunk data pipeline describes the route that data takes moving from its original source to its transformation into searchable events that encapsulate valuable knowledge. The data pipeline includes these segments:
 
@@ -258,6 +258,6 @@ Alerts in Splunk are used to monitor and respond to specific events that are det
 
 The InfoSec app utilises alerts to detect and report on notable events within your data. Understanding how to add, configure and manage alerts is an important skill when it comes to adding additional controls and use-cases to your environment.
 
-![](./Images/ManageAlerts.png)
+![Manage Alerts](./Images/ManageAlerts.png)
 
 Further information on working with Alerts can be found in Splunk's [documentation](https://docs.splunk.com/Documentation/Splunk/latest/Alert/Aboutalerts).

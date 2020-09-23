@@ -21,7 +21,7 @@ If you are new to Splunk or need to brush up on your Splunk skills, there are a 
 
 * Splunk [Fundamentals 1](https://www.splunk.com/en_us/training/free-courses/splunk-fundamentals-1.html)
 
-  This is a free Splunk training cource. It will teach you how to search and navigate in Splunk, use fields, get statistics, create reports, dashboards, lookups, alerts, and more. Scenario-based examples and hands-on challenges will enable you to create robust searches, reports, and charts. It will also introduce you to Splunk's datasets features and Pivot interface. It is important to note that once registered, you have 28 days to complete this training. There is a cost associated with signing up for the course a second time.
+  This is a free Splunk training course. It will teach you how to search and navigate in Splunk, use fields, get statistics, create reports, dashboards, lookups, alerts, and more. Scenario-based examples and hands-on challenges will enable you to create robust searches, reports, and charts. It will also introduce you to Splunk's datasets features and Pivot interface. It is important to note that once registered, you have 28 days to complete this training. There is a cost associated with signing up for the course a second time.
   
 * Splunk [Infrastructure Overview eLearning](https://www.splunk.com/en_us/training/free-courses/splunk-infastructure-overview.html)
 
