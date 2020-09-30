@@ -42,7 +42,18 @@ You may also find that your data sources feed more than just one data model.
 
 ![Data Sources](./Images/DataSourceSlide.png)
 
-For each of the InfoSec required data models, repeat the following process.
+This search can be used to identify the indexes and source types that are feeding each of the InfoSec data models:
+
+    |  makeresults 
+    | eval datamodels = "Authentication:Change:Endpoint:Intrusion_Detection:Network_Sessions:Network_Traffic:Malware:Endpoint.Processes:Web"
+    | makemv delim=":" datamodels
+    |  mvexpand datamodels 
+    | map search="| makeresults | eval notfound=\"*** NO DATA FOUND ***\" | append [| tstats count from datamodel=$datamodels$ by index, sourcetype] |  eventstats count as events |eval datamodel=\"$datamodels$\", index=coalesce(index,notfound)| search NOT notfound=* OR events=1 | table datamodel, index, sourcetype,count"
+    | sort datamodel, index, sourcetype
+
+If you're happy with the results of this search and can see that each of the required data models is being populated with data, you may want to progress directly to [Accelerate Data Models](###accelerate-data-models). Also note that it's best practice to restrict a data model to only the indexes that need to feed it with data. For this reason, you may still want to work through the next few steps.
+
+To correctly configure each of the InfoSec required data models to find the right tagged events within your environment, repeat the following process on each data model.
 
 1. Select `Data models` from the `Settings` menu.
 
