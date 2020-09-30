@@ -183,9 +183,9 @@ In this example, we'll accelerate the `Authentication` data model.
 
 	![Settings -> Data models](./Images/SettingsDataModels.png)
 
-2. Find the `Authentication` data model within the list of presented data models and select it. You can use the filters at the top of the page to assist in finding the model, if required.
+2. Find the `Authentication` data model within the list of presented data models BUT DON'T CLICK ON IT! We'll be working within the current web page. You can use the filters at the top of the page to assist in finding the model, if required.
 
-	From the `Actions` column, select `Edit Acceleration`.
+	Once you've located the `Authentication` data model within the list, from the `Actions` column, select `Edit -> Edit Acceleration`.
 
 	![Settings -> data models -> Authentication](./Images/DataModelAccelerationEdit.png)
 
