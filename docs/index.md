@@ -13,7 +13,7 @@ Please visit [Splunkbase](https://splunkbase.splunk.com/) to see what is availab
 
 Cyber Security is a journey, not a destination. The InfoSec app configuration steps and integrations with Security Essentials, the Common Information Model, and other Splunk apps and add-ons, are foundational steps towards the adoption of Splunk's Premium security platform, including [Enterprise Security](https://www.splunk.com/en_us/software/enterprise-security.html) and [Phantom](https://www.splunk.com/en_us/software/splunk-security-orchestration-and-automation.html).
 
-##Product Goals
+##App Goals
 
 The InfoSec app for Splunk aims to achieve the following:
 
