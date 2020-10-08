@@ -26,7 +26,7 @@ See [About forwarding and receiving](http://docs.splunk.com/Documentation/Forwar
 
 ###Inputs Data Manager (IDM)
 
-The Inputs Data manager is a Splunk Cloud only solution. If you have an on-premises Splunk environment you will not have an IDM. The IDM is a Splunk managed Heavy Forwarder that is bundled with your Splunk Cloud service. It is provided to you to assist with onboard cloud-native data sources like AWS, Azure, GCP, Salesforce, and others. Using the IDM removes the need to pass these cloud-native API based data sources though a self-provisioned forwarder either on-premises or within a cloud tenancy. The IDM does not support all the inputs that a traditional Heavy Forwarder can. It will not support UDP or TCP inputs such as syslog. Installing Add-ons onto the IDM requires the creation of a support request.
+The Inputs Data manager is a Splunk Cloud only solution. If you have an on-premises Splunk environment you will not have an IDM. The IDM is a Splunk managed Heavy Forwarder that is bundled with your Splunk Cloud service. It is provided to you to assist with onboarding cloud-native data sources like AWS, Azure, GCP, Salesforce, and others. Using the IDM removes the need to pass these cloud-native API based data sources though a self-provisioned forwarder either on-premises or within a cloud tenancy. The IDM does not support all the inputs that a traditional Heavy Forwarder can. It will not support UDP or TCP inputs such as syslog. Installing Add-ons onto the IDM requires the creation of a support request.
 
 For further information, please see [here](https://docs.splunk.com/Splexicon:IDM).
 
@@ -40,11 +40,11 @@ The Splunk Deployment Server is used to manage a fleet of forwarders within your
 
 Any full installation of Splunk can function as a deployment server although for larger deployments, it is recommended that a separate server perform this task (i.e. not one of your indexers or your search head(s)).
 
-If you are using Splunk Cloud, you will still an on-premises deployment server to manage your forwarder fleet.
+If you are using Splunk Cloud, you will still need an on-premises deployment server to manage your forwarder fleet.
 
 Further information can be found [here](https://docs.splunk.com/Documentation/Splunk/latest/Updating/Aboutdeploymentserver).
 
-If you are only ever going to onboard a small number of data sources (e.g. just Microsoft 365) then a deployment server might not be warranted.
+If you are only ever going to onboard a small number of data sources (e.g. just Microsoft 365) then a deployment server might not be warranted for your environment.
 
 ### HTTP Event Collector (HEC)
 
@@ -62,7 +62,7 @@ There are many input methods available to assist with getting data in. This goes
 
 Apps and Add-ons extend Splunk's out-of-the-box capabilities and enable a much faster time-to-value than other solutions as you are taking advantage of existing efforts to onboard and visualise data, or interface with third-party systems.
 
-An App is a collection Splunk configurations designed to address a use-case with Splunk. The [InfoSec App for Splunk](https://splunkbase.splunk.com/app/4240/) is an example of a Splunk app. An app may contain combinations of dashboards, reports, alerts, knowledge objects, lookups, scripted inputs, menus and other components. Together, these components form a functioning application within the Splunk platform. In the same way that roles are given permissions to access and use knowledge objects, Splunk users can only access the apps (and the included knowledge objects) that they have been given permission to use. You can create your own apps in Splunk or download and install apps from [Splunkbase](https://splunkbase.splunk.com).
+An App is a collection of Splunk configurations designed to address a use-case with Splunk. The [InfoSec App for Splunk](https://splunkbase.splunk.com/app/4240/) is an example of a Splunk app. An app may contain combinations of dashboards, reports, alerts, knowledge objects, lookups, scripted inputs, menus and other components. Together, these components form a functioning application within the Splunk platform. In the same way that roles are given permissions to access and use knowledge objects, Splunk users can only access the apps (and the included knowledge objects) that they have been given permission to use. You can create your own apps in Splunk or download and install apps from [Splunkbase](https://splunkbase.splunk.com).
 
 When browsing Splunkbase, you may notice that there are two types of apps and that the app contents can include Inputs, Alert Actions and Visualisations.
 
@@ -137,7 +137,7 @@ Every event in Splunk will have a pre-defined index, host, source, source type a
 
 ###Host
 
-Within Splunk, all event data will be assigned to a host. The host identifies the network device that collected the data for Splunk. It may be a hostname or IP address. Further information can be found in the [Splunk documentation](https://docs.splunk.com/Documentation/Splunk/8.0.5/Data/Abouthosts). The host field is considered a [default fields](https://docs.splunk.com/Splexicon:Defaultfield).
+Within Splunk, all event data will be assigned to a host. The host identifies the network device that collected the data for Splunk. It may be a hostname or IP address. Further information can be found in the [Splunk documentation](https://docs.splunk.com/Documentation/Splunk/8.0.5/Data/Abouthosts). The host field is considered a [default field](https://docs.splunk.com/Splexicon:Defaultfield).
 
 ###Field
 
@@ -187,7 +187,7 @@ Permissions within Splunk define who has access to data and knowledge objects. R
 
 When first created within Splunk Web, knowledge objects are private and only accessible to the user that created them. A Splunk knowledge manager can share these objects with other Splunk users by adjusting the permissions of the objects. Knowledge objects can be shared with individual roles, or everyone. Knowledge objects can also be restricted to be available within a single app, or globally.
 
-Permissions for knowledge objects can be managed through the Settings menu within Splunk Web. It is important to understand that permissions related to knowledge objects can impact data models. Fields and Tags that are private cannot feed a data model. Private data models cannot be accelerated, etc. Wen troubleshooting, checking the permissions on knowledge objects can often identify the cause of an issue.
+Permissions for knowledge objects can be managed through the `Settings` menu within Splunk Web. It is important to understand that permissions related to knowledge objects can impact data models. Fields and Tags that are private cannot feed a data model. Private data models cannot be accelerated, etc. Wen troubleshooting, checking the permissions on knowledge objects can often identify the cause of an issue.
 
 Further information can be found in Spunk's documentation. The Splunk [Splexicon](https://docs.splunk.com/Splexicon:Permissions) contains links to the relevant pages.
 
@@ -201,11 +201,11 @@ When searching for events within Splunk, you can reference the macro within your
 
     `iis_logs` cs_username="fred"
     
-Splunk will expand the macro when performing the search resulting the following search being run
+Splunk will expand the macro when performing the search resulting in the following search being run
 
     (index=windows OR index=dmz sourcetype=iis) cs_username="fred"
 
-data models make use of search macros to define what data should be included within the data model.
+data models usually make use of search macros to define what data should be included within the data model.
 
 Further information can be found in Splunk's [documentation](https://docs.splunk.com/Splexicon:Searchmacro).
 
